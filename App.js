@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, FlatList, Text, View } from 'react-native';
+import { StyleSheet, FlatList, Text, View, Image } from 'react-native';
 
 export default function App() {
   const [coffeeList, setCoffeeList] = useState([]);
 
+
+  // should only render on the first load
   useEffect(() => {
     fetch('https://api.finegrind.app/cafes/')
     .then((response) => response.json())
@@ -22,7 +24,13 @@ export default function App() {
           data={coffeeList}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
-            <Text>{item.attributes.name}</Text>
+            <View>
+              <Text>{item.attributes.name}</Text>
+              <Image
+                  style={{ width: 50, height: 50 }} 
+                  source={{ uri: `${item.attributes.image}` }} 
+                />
+            </View>
           )}
       />
        
@@ -39,3 +47,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+/* To do list:
+- add photos to the database - added mock images
+- split up the code to screens
+- implement navigation between screens
+- make UI somewhat nice-ish
+
+*/
+
