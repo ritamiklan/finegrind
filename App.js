@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, FlatList, Text, View, Image } from "react-native";
-import config from "./config";
+import config from "./src/utils/config";
 
 export default function App() {
   const [coffeeList, setCoffeeList] = useState([]);
@@ -11,7 +11,7 @@ export default function App() {
       .then((response) => response.json())
       .then((dt) => setCoffeeList(dt.data))
       .catch((err) => Alert.alert("Something went wrong"));
-  });
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -46,10 +46,13 @@ const styles = StyleSheet.create({
   },
 });
 
-/* To do list:
+/* 
+
+To do list:
 - add photos to the database - added mock images
 - split up the code to screens
 - implement navigation between screens
+- map screen with location
 - make UI somewhat nice-ish
 
 */
