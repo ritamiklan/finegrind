@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import CoffeeList from "./src/components/CoffeeList";
+import CoffeeList from "./src/screens/CoffeeList";
 import Home from "./src/screens/Home";
 
 export default function App() {
