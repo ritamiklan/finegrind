@@ -1,10 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, FlatList, Text, View, Image } from "react-native";
-import config from "./src/utils/config";
+import "react-native-gesture-handler";
+import React from "react";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
 import CoffeeList from "./src/components/CoffeeList";
+import Home from "./src/screens/Home";
 
 export default function App() {
-  return <CoffeeList />;
+  const Drawer = createDrawerNavigator();
+
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Cafe List" component={CoffeeList} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 }
 
 /* 
