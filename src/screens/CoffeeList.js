@@ -15,24 +15,19 @@ export default function CoffeeList() {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, justifyContent: "center" }}>
-        <Text>Welcome!</Text>
-      </View>
-      <View style={{ flex: 2 }}>
-        <FlatList
-          data={coffeeList}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <View>
-              <Text>{item.attributes.name}</Text>
-              <Image
-                style={{ width: 50, height: 50 }}
-                source={{ uri: `${item.attributes.image}` }}
-              />
-            </View>
-          )}
-        />
-      </View>
+      <FlatList
+        data={coffeeList}
+        keyExtractor={({ id }, index) => id}
+        renderItem={({ item }) => (
+          <View>
+            <Text>{item.attributes.name}</Text>
+            <Image
+              style={{ width: 50, height: 50 }}
+              source={{ uri: `${item.attributes.image}` }}
+            />
+          </View>
+        )}
+      />
     </View>
   );
 }
@@ -41,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    alignItems: "stretch",
     justifyContent: "center",
   },
 });
