@@ -3,7 +3,7 @@ import { StyleSheet, FlatList, Text, View, Image } from "react-native";
 import useList from "../hooks/useList";
 
 export default function CoffeeList() {
-  const [coffeeList] = useList;
+  const [coffeeList] = useList();
 
   return (
     <View style={styles.container}>
