@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, FlatList, Text, View, Image } from "react-native";
-import config from "../utils/config";
+import useList from "../hooks/useList";
 
 export default function CoffeeList() {
-  const [coffeeList, setCoffeeList] = useState([]);
-
-  // should only render on the first load
-  useEffect(() => {
-    fetch(config.API_URL)
-      .then((response) => response.json())
-      .then((dt) => setCoffeeList(dt.data))
-      .catch((err) => Alert.alert("Something went wrong"));
-  }, []);
+  const [coffeeList] = useList();
 
   return (
     <View style={styles.container}>
