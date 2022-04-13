@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import CoffeeList from "./src/screens/CoffeeList";
+import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import Home from "./src/screens/Home";
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Cafe List" component={CoffeeList} />
+        <Drawer.Screen name="Cafe List" component={CoffeeListScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

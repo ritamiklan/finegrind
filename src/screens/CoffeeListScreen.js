@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, FlatList, Text, View, Image } from "react-native";
 import useList from "../hooks/useList";
+import ListDetail from "../components/ListDetail";
 
 export default function CoffeeList() {
   const [coffeeList] = useList();
@@ -10,15 +11,9 @@ export default function CoffeeList() {
       <FlatList
         data={coffeeList}
         keyExtractor={({ id }, index) => id}
-        renderItem={({ item }) => (
-          <View>
-            <Text>{item.attributes.name}</Text>
-            <Image
-              style={{ width: 50, height: 50 }}
-              source={{ uri: `${item.attributes.image}` }}
-            />
-          </View>
-        )}
+        renderItem={({ item }) => {
+          return <ListDetail listitem={item} />;
+        }}
       />
     </View>
   );
