@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, FlatList, Text, View, Image } from "react-native";
+import React from "react";
+import { StyleSheet, FlatList, View, TouchableOpacity } from "react-native";
 import useList from "../hooks/useList";
 import ListDetail from "../components/ListDetail";
 
-export default function CoffeeList() {
+const CoffeeListScreen = ({ navigation }) => {
   const [coffeeList] = useList();
-
   return (
     <View style={styles.container}>
       <FlatList
         data={coffeeList}
         keyExtractor={({ id }, index) => id}
         renderItem={({ item }) => {
-          return <ListDetail listitem={item} />;
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate("CoffeeDetail")}
+            >
+              <ListDetail listitem={item} />
+            </TouchableOpacity>
+          );
         }}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -27,3 +32,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default CoffeeListScreen;
