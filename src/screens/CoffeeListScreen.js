@@ -13,7 +13,9 @@ const CoffeeListScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("CoffeeDetail")}
+              onPress={() =>
+                navigation.navigate("Home", { screen: "CoffeeDetail" })
+              }
             >
               <ListDetail listitem={item} />
             </TouchableOpacity>
