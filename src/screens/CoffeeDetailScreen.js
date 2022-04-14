@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import config from "../utils/config";
 
+// detailed page for every individual cafe with all the details, such as name, opening hrs and so on
+
 export default function CoffeeDetailScreen({ route, navigation }) {
   const { id } = route.params;
   const [cafe, setCafe] = useState({

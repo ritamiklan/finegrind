@@ -3,6 +3,9 @@ import { StyleSheet, FlatList, View, TouchableOpacity } from "react-native";
 import useList from "../hooks/useList";
 import ListDetail from "../components/ListDetail";
 
+// screen for showing all the cafes listed
+// maybe this will be changed to a component and added to welcome screen, not sure yet
+
 const CoffeeListScreen = ({ navigation }) => {
   const [coffeeList] = useList();
   // console.log(coffeeList);

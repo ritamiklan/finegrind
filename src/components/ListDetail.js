@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
+// component to render individual list items on the main cafe list
+
 export default function ListDetail({ listitem }) {
   return (
     <View>

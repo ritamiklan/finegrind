@@ -5,6 +5,9 @@ import CoffeeDetailScreen from "./CoffeeDetailScreen";
 import CoffeeListScreen from "./CoffeeListScreen";
 import Welcome from "./Welcome";
 
+// nested navigation for making the list items clickable
+// still messed up, needs fixing
+
 const Stack = createNativeStackNavigator();
 export default function Home() {
   return (

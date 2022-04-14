@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import config from "../utils/config";
 
+// extracted hook for the listing of cafes
+
 export default () => {
   const [coffeeList, setCoffeeList] = useState([]);
 
