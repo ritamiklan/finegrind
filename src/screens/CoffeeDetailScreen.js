@@ -11,11 +11,10 @@ export default function CoffeeDetailScreen({ route, navigation }) {
     attributes: {
       name: "",
       address: "",
-      image: "",
+      image:
+        "https://api.finegrind.app/media/images/2022/02/08/latte_6otEWhe.jpg",
     },
   });
-  console.log(id);
-  console.log(cafe);
 
   const getCafe = (id) => {
     fetch(config.API_URL + id)
