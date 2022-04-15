@@ -8,7 +8,7 @@ import ListDetail from "../components/ListDetail";
 
 const CoffeeListScreen = ({ navigation }) => {
   const [coffeeList] = useList();
-  // console.log(coffeeList);
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -18,8 +18,9 @@ const CoffeeListScreen = ({ navigation }) => {
           return (
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("CoffeeDetail", {
-                  id: item.id,
+                navigation.navigate("nested", {
+                  screen: "Coffee Detail",
+                  params: { id: item.id },
                 })
               }
             >

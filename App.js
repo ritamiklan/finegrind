@@ -4,6 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import Home from "./src/screens/Home";
+import Nestednav from "./src/screens/Nestednav";
 
 // root screen, here comes the main drawer navigation
 export default function App() {
@@ -13,6 +14,13 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Cafe List" component={CoffeeListScreen} />
+        <Drawer.Screen
+          name="nested"
+          component={Nestednav}
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
