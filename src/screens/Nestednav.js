@@ -8,18 +8,19 @@ import CoffeeListScreen from "./CoffeeListScreen";
 // still messed up, needs fixing
 
 const Stack = createNativeStackNavigator();
+
 export default function Nestednav() {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="CoffeeList"
         component={CoffeeListScreen}
-        options={{ headerShown: true }}
+        //  options={{ headerShown: true }}
       />
       <Stack.Screen
         name="Coffee Detail"
         component={CoffeeDetailScreen}
-        options={{ headerShown: true }}
+        //  options={{ headerShown: true }}
       />
     </Stack.Navigator>
   );

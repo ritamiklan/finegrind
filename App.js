@@ -6,6 +6,8 @@ import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import Home from "./src/screens/Home";
 import Nestednav from "./src/screens/Nestednav";
 
+import { Header } from "@rneui/themed";
+
 // root screen, here comes the main drawer navigation
 export default function App() {
   const Drawer = createDrawerNavigator();
@@ -14,13 +16,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Cafe List" component={CoffeeListScreen} />
-        <Drawer.Screen
-          name="nested"
-          component={Nestednav}
-          screenOptions={{
-            headerShown: false,
-          }}
-        />
+        <Drawer.Screen name="nested" component={Nestednav} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
