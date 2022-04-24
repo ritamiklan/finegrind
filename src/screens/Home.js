@@ -1,17 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-// nested navigation for making the list items clickable
-// still messed up, needs fixing
-
 export default function Home({ navigation }) {
   return (
-    <View>
-      <Text>HOME SCREEN</Text>
+    <View style={styles.container}>
+      <Text>Hello</Text>
       <Button
-        title="Explore cafes"
+        title="Cafe list"
         onPress={() => navigation.navigate("CoffeeListScreen")}
       />
+      <Button title="Map" onPress={() => navigation.navigate("MapScreen")} />
     </View>
   );
 }
