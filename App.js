@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/screens/Home";
 import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
+import MapScreen from "./src/screens/MapScreen";
 
 // root screen, here comes the main drawer navigation
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
+        <Stack.Screen name="MapScreen" component={MapScreen} />
         <Stack.Screen
           name="CoffeeDetailScreen"
           component={CoffeeDetailScreen}
