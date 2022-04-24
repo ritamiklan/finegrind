@@ -18,10 +18,7 @@ const CoffeeListScreen = ({ navigation }) => {
           return (
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("nested", {
-                  screen: "Coffee Detail",
-                  params: { id: item.id },
-                })
+                navigation.navigate("CoffeeDetailScreen", { id: item.id })
               }
             >
               <ListDetail listitem={item} />

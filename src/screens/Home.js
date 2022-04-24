@@ -1,19 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Header } from "@rneui/themed";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 // nested navigation for making the list items clickable
 // still messed up, needs fixing
 
-export default function Home(props) {
-  // console.log(props);
+export default function Home({ navigation }) {
   return (
-    /* <Header
-      leftComponent={{ icon: "", color: "#fff" }}
-      centerComponent={{ text: props.route.name, style: { color: "#fff" } }}
-      rightComponent={{ icon: "home", color: "#fff " }}
-    /> */
-    <Text>HOME SCREEN</Text>
+    <View>
+      <Text>HOME SCREEN</Text>
+      <Button
+        title="Explore cafes"
+        onPress={() => navigation.navigate("CoffeeListScreen")}
+      />
+    </View>
   );
 }
 
