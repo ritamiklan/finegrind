@@ -32,6 +32,7 @@ export default function CoffeeDetailScreen({ route }) {
   return (
     <View>
       <Text>{cafe.attributes.name}</Text>
+      <Text>{cafe.attributes.description}</Text>
       <Image
         style={{ width: 150, height: 100 }}
         source={{ uri: `${cafe.attributes.image}` }}
