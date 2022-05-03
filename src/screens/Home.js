@@ -1,24 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { Text, View, Button } from "react-native";
+import { globalStyles } from "../styles/global";
 
 export default function Home({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>Hello</Text>
-      <Button
-        title="Cafe list"
-        onPress={() => navigation.navigate("CoffeeListScreen")}
-      />
-      <Button title="Map" onPress={() => navigation.navigate("MapScreen")} />
+    <View style={globalStyles.container}>
+      <View style={globalStyles.details}>
+        <Text>Hello</Text>
+      </View>
+      <View style={globalStyles.buttonContainer}>
+        <Button
+          title="Cafe list"
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        />
+        <Button title="Map" onPress={() => navigation.navigate("MapScreen")} />
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
