@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, Button } from "react-native";
 import config from "../utils/config";
+import { globalStyles } from "../styles/global";
 
 // detailed page for every individual cafe with all the details, such as name, opening hrs and so on
 
@@ -41,25 +42,25 @@ export default function CoffeeDetailScreen({ route }) {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
       <Image
-        style={styles.image}
+        style={globalStyles.image}
         source={{ uri: `${cafe.attributes.image}` }}
       />
-      <View style={styles.details}>
+      <View style={globalStyles.details}>
         <Text>{cafe.attributes.name}</Text>
         <Text>{cafe.attributes.description}</Text>
         <Text>Hours: {cafe.attributes.openinghours.mon}</Text>
         <Text>Roastery: {cafe.attributes.roastery}</Text>
       </View>
-      <View style={styles.buttonContainer}>
+      <View style={globalStyles.buttonContainer}>
         <Button
-          style={styles.button}
+          style={globalStyles.button}
           title="View on map"
           onPress={() => console.log("pushed")}
         />
         <Button
-          style={styles.button}
+          style={globalStyles.button}
           title="IDK"
           onPress={() => console.log("idk")}
         />
@@ -67,25 +68,3 @@ export default function CoffeeDetailScreen({ route }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    flex: 1,
-    width: "auto",
-    height: 150,
-  },
-  details: {
-    flex: 2,
-    marginHorizontal: 10,
-    justifyContent: "space-around",
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 50,
-  },
-  button: {},
-});

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
-export default function Home({ navigation }) {
+export default function MapScreen({ navigation }) {
   const [location, setLocation] = useState({
     // initial value shouldn't be null
     latitude: 0,
