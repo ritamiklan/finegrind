@@ -43,5 +43,3 @@ export default function MapComponent({ navigation }) {
     </MapView>
   );
 }
-
-const styles = StyleSheet.create({});
