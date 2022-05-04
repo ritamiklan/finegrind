@@ -13,7 +13,10 @@ export default function Home({ navigation }) {
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
-        <Button title="Map" onPress={() => navigation.navigate("MapScreen")} />
+        <Button
+          title="sandbox"
+          onPress={() => console.log("sandbox pressed")}
+        />
       </View>
     </View>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, FlatList, View, TouchableOpacity } from "react-native";
+import { FlatList, View, TouchableOpacity } from "react-native";
 import useList from "../hooks/useList";
 import ListDetail from "../components/ListDetail";
 import { globalStyles } from "../styles/global";

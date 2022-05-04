@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
-export default function MapScreen({ navigation }) {
+export default function MapComponent({ navigation }) {
   const [location, setLocation] = useState({
     // initial value shouldn't be null
     latitude: 0,
@@ -43,5 +43,3 @@ export default function MapScreen({ navigation }) {
     </MapView>
   );
 }
-
-const styles = StyleSheet.create({});
