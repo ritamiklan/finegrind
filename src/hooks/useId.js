@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import config from "../utils/config";
 
+// extracted hook logic to find cafes by ID
+
 export default (id) => {
   const [coffeeDetail, setCoffeeDetail] = useState({
     attributes: {
