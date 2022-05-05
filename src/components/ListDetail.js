@@ -8,7 +8,7 @@ export default function ListDetail({ listitem }) {
     <View>
       <Text>{listitem.attributes.name}</Text>
       <Image
-        style={{ width: 50, height: 50 }}
+        style={{ width: "auto", height: 50 }}
         source={{ uri: `${listitem.attributes.image}` }}
       />
     </View>

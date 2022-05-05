@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, Text, Image, Button } from "react-native";
-import config from "../utils/config";
+import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 
 // detailed page for every individual cafe with all the details, such as name, opening hrs and so on
@@ -8,67 +8,34 @@ import { globalStyles } from "../styles/global";
 export default function CoffeeDetailScreen({ route, navigation }) {
   const { id } = route.params;
 
-  const [cafe, setCafe] = useState({
-    id: "",
-    attributes: {
-      name: "",
-      description: "",
-      address: "",
-      roastery: "",
-      image: "../../assets/coffee.jpg",
-      openinghours: {
-        mon: "",
-        tue: "",
-        wed: "",
-        thu: "",
-        fri: "",
-        sat: "",
-        sun: "",
-      },
-      loc: {
-        lat: 0,
-        long: 0,
-      },
-    },
-  });
-
-  const getCafe = (id) => {
-    fetch(config.API_URL + id)
-      .then((response) => response.json())
-      .then((dt) => setCafe(dt.data))
-      .catch((error) => {
-        console.log("Error", error);
-      });
-  };
-
-  useEffect(() => {
-    getCafe(id);
-  }, []);
+  const [coffeeDetail] = useId(id);
 
   return (
     <View style={globalStyles.container}>
       <Image
         style={globalStyles.image}
-        source={{ uri: `${cafe.attributes.image}` }}
+        source={{ uri: `${coffeeDetail.attributes.image}` }}
       />
       <View style={globalStyles.details}>
-        <Text>{cafe.attributes.name}</Text>
-        <Text>{cafe.attributes.description}</Text>
+        <Text>{coffeeDetail.attributes.name}</Text>
+        <Text>{coffeeDetail.attributes.description}</Text>
         <Text>Hours:</Text>
-        <Text>Mon: {cafe.attributes.openinghours.mon}</Text>
-        <Text>Tue: {cafe.attributes.openinghours.tue}</Text>
-        <Text>Wed: {cafe.attributes.openinghours.wed}</Text>
-        <Text>Thu: {cafe.attributes.openinghours.thu}</Text>
-        <Text>Fri: {cafe.attributes.openinghours.fri}</Text>
-        <Text>Sat: {cafe.attributes.openinghours.sat}</Text>
-        <Text>Sun: {cafe.attributes.openinghours.sun}</Text>
-        <Text>Roastery: {cafe.attributes.roastery}</Text>
+        <Text>Mon: {coffeeDetail.attributes.openinghours.mon}</Text>
+        <Text>Tue: {coffeeDetail.attributes.openinghours.tue}</Text>
+        <Text>Wed: {coffeeDetail.attributes.openinghours.wed}</Text>
+        <Text>Thu: {coffeeDetail.attributes.openinghours.thu}</Text>
+        <Text>Fri: {coffeeDetail.attributes.openinghours.fri}</Text>
+        <Text>Sat: {coffeeDetail.attributes.openinghours.sat}</Text>
+        <Text>Sun: {coffeeDetail.attributes.openinghours.sun}</Text>
+        <Text>Roastery: {coffeeDetail.attributes.roastery}</Text>
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button
           style={globalStyles.button}
           title="View on map"
-          onPress={() => navigation.navigate("ShowMap", { id: id, data: cafe })}
+          onPress={() =>
+            navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
+          }
         />
         <Button
           style={globalStyles.button}

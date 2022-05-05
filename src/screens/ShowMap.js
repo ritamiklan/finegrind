@@ -4,10 +4,7 @@ import MapComponent from "../components/MapComponent";
 import { globalStyles } from "../styles/global";
 
 export default function ShowMap({ route }) {
-  const { id, data } = route.params;
-
-  console.log(id);
-  console.log(data);
+  const { data } = route.params;
 
   return (
     <View style={globalStyles.container}>

@@ -1,45 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import * as Location from "expo-location";
 
-export default function MapComponent({ navigation }) {
-  const [location, setLocation] = useState({
-    // initial value shouldn't be null
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta: 0.0322,
-    longitudeDelta: 0.0221,
+export default function MapComponent({ mapdata }) {
+  const [cafeLoc, setCafeLoc] = useState({
+    latitude: mapdata.attributes.loc.lat,
+    longitude: mapdata.attributes.loc.long,
+    latitudeDelta: 0.0043,
+    longitudeDelta: 0.0034,
   });
-  const [errorMsg, setErrorMsg] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: 0.0322,
-        longitudeDelta: 0.0221,
-      });
-      console.log(location.coords.latitude); // this works it seems
-      console.log(location.coords.longitude);
-    })();
-  }, []);
 
   return (
     <MapView
       style={StyleSheet.absoluteFillObject}
-      region={location}
+      region={cafeLoc}
       provider="google"
     >
-      <Marker coordinate={location} />
+      <Marker coordinate={cafeLoc} />
     </MapView>
   );
 }

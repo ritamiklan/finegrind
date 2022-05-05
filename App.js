@@ -30,8 +30,8 @@ export default function App() {
 To do list:
 - add photos to the database - added mock images
 - split up the code to screens - sort of done
-- implement navigation between screens - needs to be properly fixed, buggy
-- coords need to be added to API
+- implement navigation between screens
+- coords need to be added to API - done
 - map screen with location
 - make UI somewhat nice-ish
 */
