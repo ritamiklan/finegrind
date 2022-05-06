@@ -4,6 +4,15 @@ export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  loginContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  inputContainer: {
+    borderWidth: 1,
+    borderColor: "#333",
+  },
   image: {
     flex: 1,
     width: "auto",

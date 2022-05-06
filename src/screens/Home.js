@@ -14,8 +14,8 @@ export default function Home({ navigation }) {
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
-          title="sandbox"
-          onPress={() => console.log("sandbox pressed")}
+          title="Login"
+          onPress={() => navigation.navigate("LoginScreen")}
         />
       </View>
     </View>
