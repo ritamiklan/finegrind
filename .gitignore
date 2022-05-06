@@ -12,6 +12,7 @@ web-build/
 
 # api stuff
 .env
+firebase.js
 
 # macOS
 .DS_Store
