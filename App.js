@@ -6,6 +6,7 @@ import Home from "./src/screens/Home";
 import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
 import ShowMap from "./src/screens/ShowMap";
+import LoginScreen from "./src/screens/LoginScreen";
 
 // root screen, here comes the main drawer navigation
 export default function App() {
@@ -19,6 +20,11 @@ export default function App() {
         <Stack.Screen
           name="CoffeeDetailScreen"
           component={CoffeeDetailScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="LoginScreen"
+          component={LoginScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
