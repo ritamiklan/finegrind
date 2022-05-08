@@ -26,6 +26,7 @@ export default function Home({ navigation }) {
           title="Login"
           onPress={() => navigation.navigate("LoginScreen")}
         />
+        <Button title="Log out" onPress={handleSignout} />
       </View>
     </View>
   );
