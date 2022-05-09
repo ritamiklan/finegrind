@@ -7,27 +7,30 @@ import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
 import ShowMap from "./src/screens/ShowMap";
 import LoginScreen from "./src/screens/LoginScreen";
+import { UserProvider } from "./src/context/UserContext";
 
 // root screen, here comes the main drawer navigation
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
-        <Stack.Screen name="ShowMap" component={ShowMap} />
-        <Stack.Screen
-          name="CoffeeDetailScreen"
-          component={CoffeeDetailScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="LoginScreen"
-          component={LoginScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
+          <Stack.Screen name="ShowMap" component={ShowMap} />
+          <Stack.Screen
+            name="CoffeeDetailScreen"
+            component={CoffeeDetailScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="LoginScreen"
+            component={LoginScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
   );
 }
 
