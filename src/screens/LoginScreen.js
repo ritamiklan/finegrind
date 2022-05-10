@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
@@ -8,12 +8,11 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-// this is just a boilerplate code so it's easy to copy/paste when a new screen or component is added
+import { useUser } from "../context/UserContext";
 
 export default function LoginScreen({ navigation }) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { username, email, password, setUsername, setEmail, setPassword } =
+    useUser();
 
   const auth = getAuth(firebaseApp);
 

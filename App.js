@@ -7,9 +7,8 @@ import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
 import ShowMap from "./src/screens/ShowMap";
 import LoginScreen from "./src/screens/LoginScreen";
-import { UserProvider } from "./src/context/UserContext";
+import UserProvider from "./src/context/UserContext";
 
-// root screen, here comes the main drawer navigation
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
@@ -33,14 +32,3 @@ export default function App() {
     </UserProvider>
   );
 }
-
-/* 
-
-To do list:
-- add photos to the database - added mock images
-- split up the code to screens - sort of done
-- implement navigation between screens
-- coords need to be added to API - done
-- map screen with location
-- make UI somewhat nice-ish
-*/
