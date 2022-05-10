@@ -43,4 +43,8 @@ export const globalStyles = StyleSheet.create({
   list: {
     margin: 15,
   },
+  mainText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 });
