@@ -3,9 +3,12 @@ import { Text, View, Button } from "react-native";
 import { globalStyles } from "../styles/global";
 import { firebaseApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { useUser } from "../context/UserContext";
 
 export default function Home({ navigation }) {
   const auth = getAuth(firebaseApp);
+
+  const { username } = useUser();
 
   const handleSignout = () => {
     auth.signOut();
@@ -14,7 +17,7 @@ export default function Home({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.details}>
-        <Text>Hello</Text>
+        <Text>Hello {username}</Text>
         <Text>{auth.currentUser?.email}</Text>
       </View>
       <View style={globalStyles.buttonContainer}>
