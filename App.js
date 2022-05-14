@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./src/screens/Home";
+import Home from "./src/screens/HomeScreen";
 import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
 import ShowMap from "./src/screens/ShowMap";
