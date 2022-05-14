@@ -17,7 +17,7 @@ export default function Home({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.details}>
-        <Text>Hello {username}</Text>
+        <Text style={globalStyles.mainText}>Hello {username}</Text>
         <Text>{auth.currentUser?.email}</Text>
       </View>
       <View style={globalStyles.buttonContainer}>
