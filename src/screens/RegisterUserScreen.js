@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -10,13 +17,21 @@ import { useUser } from "../context/UserContext";
 // FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
 
 export default function RegisterUserScreen({ navigation }) {
-  const { username, email, password, setUsername, setEmail, setPassword } =
-    useUser();
+  const {
+    username,
+    email,
+    password,
+    setIsLoggedIn,
+    setUsername,
+    setEmail,
+    setPassword,
+  } = useUser();
   const auth = getAuth(firebaseApp);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        setIsLoggedIn(true);
         navigation.navigate("Home");
       }
     });
@@ -31,18 +46,10 @@ export default function RegisterUserScreen({ navigation }) {
     );
   };
 
-  // const handleLogin = () => {
-  //   signInWithEmailAndPassword(auth, email, password).then(
-  //     (userCredentials) => {
-  //       const user = userCredentials.user;
-  //       console.log("logged in with", user.email);
-  //     }
-  //   );
-  // };
-
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
+        <Text>Please register</Text>
         <TextInput
           style={globalStyles.inputField}
           placeholder="Username"
@@ -64,6 +71,10 @@ export default function RegisterUserScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           autoCapitalize="none"
         />
+        <Text>Already have an account?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+          <Text>Log in instead</Text>
+        </TouchableOpacity>
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button title="REGISTER" onPress={handleSignup} />

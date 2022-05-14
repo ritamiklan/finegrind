@@ -8,6 +8,7 @@ export default function UserProvider({ children }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <UserContext.Provider
@@ -15,9 +16,11 @@ export default function UserProvider({ children }) {
         username,
         email,
         password,
+        isLoggedIn,
         setUsername,
         setEmail,
         setPassword,
+        setIsLoggedIn,
       }}
     >
       {children}
