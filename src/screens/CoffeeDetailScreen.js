@@ -27,7 +27,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Text>Fri: {coffeeDetail.attributes.openinghours.fri}</Text>
         <Text>Sat: {coffeeDetail.attributes.openinghours.sat}</Text>
         <Text>Sun: {coffeeDetail.attributes.openinghours.sun}</Text>
-        <Text>Roastery: {coffeeDetail.attributes.roastery}</Text>
+        <Text>Roastery: {coffeeDetail.attributes.roasteries[0].name}</Text>
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button
@@ -39,8 +39,8 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         />
         <Button
           style={globalStyles.button}
-          title="IDK"
-          onPress={() => console.log("idk")}
+          title="Add to favs"
+          onPress={() => console.log("add to favs", id)}
         />
       </View>
     </View>

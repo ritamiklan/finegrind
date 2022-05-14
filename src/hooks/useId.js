@@ -9,7 +9,7 @@ export default (id) => {
       name: "",
       description: "",
       address: "",
-      roastery: "",
+      roasteries: [{}],
       image: "../../assets/coffee.jpg",
       openinghours: {
         mon: "",
