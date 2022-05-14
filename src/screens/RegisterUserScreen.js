@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import firebaseSaveUser from "../utils/firebaseSaveUser";
 
 import { useUser } from "../context/UserContext";
 
-// LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS (NOT FULLY IMPLEMENTED YET)
+// FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
 
-export default function LoginScreen({ navigation }) {
+export default function RegisterUserScreen({ navigation }) {
   const { username, email, password, setUsername, setEmail, setPassword } =
     useUser();
-
   const auth = getAuth(firebaseApp);
 
   useEffect(() => {
@@ -22,13 +22,23 @@ export default function LoginScreen({ navigation }) {
     });
   }, []);
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password).then(
-      (userCredentioals) => {
-        const user = userCredentioals.user;
+  const handleSignup = () => {
+    createUserWithEmailAndPassword(auth, email, password).then(
+      (userCredentials) => {
+        const user = userCredentials.user;
+        firebaseSaveUser(user, username);
       }
     );
   };
+
+  // const handleLogin = () => {
+  //   signInWithEmailAndPassword(auth, email, password).then(
+  //     (userCredentials) => {
+  //       const user = userCredentials.user;
+  //       console.log("logged in with", user.email);
+  //     }
+  //   );
+  // };
 
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
@@ -56,7 +66,7 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button title="SUNNYBUNNY" onPress={handleLogin} />
+        <Button title="REGISTER" onPress={handleSignup} />
       </View>
     </KeyboardAvoidingView>
   );

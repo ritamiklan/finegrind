@@ -26,8 +26,8 @@ export default function Home({ navigation }) {
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
-          title="Login"
-          onPress={() => navigation.navigate("LoginScreen")}
+          title="Register"
+          onPress={() => navigation.navigate("RegisterUserScreen")}
         />
         <Button title="Log out" onPress={handleSignout} />
       </View>
