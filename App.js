@@ -6,7 +6,7 @@ import Home from "./src/screens/Home";
 import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
 import ShowMap from "./src/screens/ShowMap";
-import LoginScreen from "./src/screens/LoginScreen";
+import RegisterUserScreen from "./src/screens/RegisterUserScreen";
 import UserProvider from "./src/context/UserContext";
 
 export default function App() {
@@ -24,8 +24,8 @@ export default function App() {
           />
           <Stack.Screen
             options={{ headerShown: false }}
-            name="LoginScreen"
-            component={LoginScreen}
+            name="RegisterUserScreen"
+            component={RegisterUserScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
