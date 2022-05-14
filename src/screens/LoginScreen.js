@@ -11,8 +11,15 @@ import { onValue } from "firebase/database";
 // LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS (NOT FULLY IMPLEMENTED YET)
 
 export default function LoginScreen({ navigation }) {
-  const { username, email, password, setUsername, setEmail, setPassword } =
-    useUser();
+  const {
+    username,
+    email,
+    password,
+    setUsername,
+    setEmail,
+    setPassword,
+    setIsLoggedIn,
+  } = useUser();
 
   const auth = getAuth(firebaseApp);
 
@@ -24,6 +31,7 @@ export default function LoginScreen({ navigation }) {
         onValue(userRef, (snapshot) => {
           const data = snapshot.val();
           setUsername(data.username);
+          setIsLoggedIn(true);
           navigation.navigate("Home");
           setEmail("");
           setPassword("");

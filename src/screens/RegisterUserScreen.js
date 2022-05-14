@@ -16,13 +16,21 @@ import { useUser } from "../context/UserContext";
 // FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
 
 export default function RegisterUserScreen({ navigation }) {
-  const { username, email, password, setUsername, setEmail, setPassword } =
-    useUser();
+  const {
+    username,
+    email,
+    password,
+    setIsLoggedIn,
+    setUsername,
+    setEmail,
+    setPassword,
+  } = useUser();
   const auth = getAuth(firebaseApp);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        setIsLoggedIn(true);
         navigation.navigate("Home");
       }
     });
