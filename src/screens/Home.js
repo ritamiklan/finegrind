@@ -29,6 +29,10 @@ export default function Home({ navigation }) {
           title="Register"
           onPress={() => navigation.navigate("RegisterUserScreen")}
         />
+        <Button
+          title="Log in"
+          onPress={() => navigation.navigate("LoginScreen")}
+        />
         <Button title="Log out" onPress={handleSignout} />
       </View>
     </View>

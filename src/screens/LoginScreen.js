@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
+import { getDatabase, ref } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import { useUser } from "../context/UserContext";
+import { onValue } from "firebase/database";
 
 // LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS (NOT FULLY IMPLEMENTED YET)
 
@@ -17,7 +19,15 @@ export default function LoginScreen({ navigation }) {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate("Home");
+        const db = getDatabase(firebaseApp);
+        const userRef = ref(db, "users/" + user.uid);
+        onValue(userRef, (snapshot) => {
+          const data = snapshot.val();
+          setUsername(data.username);
+          navigation.navigate("Home");
+          setEmail("");
+          setPassword("");
+        });
       }
     });
   }, []);
@@ -26,6 +36,7 @@ export default function LoginScreen({ navigation }) {
     signInWithEmailAndPassword(auth, email, password).then(
       (userCredentioals) => {
         const user = userCredentioals.user;
+        console.log("LOGGED IN WITH ", user.email);
       }
     );
   };
@@ -33,12 +44,6 @@ export default function LoginScreen({ navigation }) {
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
-        <TextInput
-          style={globalStyles.inputField}
-          placeholder="Username"
-          value={username}
-          onChangeText={(text) => setUsername(text)}
-        />
         <TextInput
           style={globalStyles.inputField}
           placeholder="E-mail"
@@ -56,7 +61,7 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button title="SUNNYBUNNY" onPress={handleLogin} />
+        <Button title="LOG IN" onPress={handleLogin} />
       </View>
     </KeyboardAvoidingView>
   );

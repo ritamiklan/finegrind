@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  KeyboardAvoidingView,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -31,18 +37,10 @@ export default function RegisterUserScreen({ navigation }) {
     );
   };
 
-  // const handleLogin = () => {
-  //   signInWithEmailAndPassword(auth, email, password).then(
-  //     (userCredentials) => {
-  //       const user = userCredentials.user;
-  //       console.log("logged in with", user.email);
-  //     }
-  //   );
-  // };
-
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
+        <Text>Please register</Text>
         <TextInput
           style={globalStyles.inputField}
           placeholder="Username"
