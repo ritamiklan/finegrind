@@ -11,7 +11,6 @@ import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import firebaseSaveUser from "../utils/firebaseSaveUser";
-
 import { useUser } from "../context/UserContext";
 
 // FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
@@ -25,13 +24,17 @@ export default function RegisterUserScreen({ navigation }) {
     setUsername,
     setEmail,
     setPassword,
+    setUid,
   } = useUser();
+
   const auth = getAuth(firebaseApp);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        console.log(user);
         setIsLoggedIn(true);
+
         navigation.navigate("Home");
       }
     });
@@ -42,6 +45,7 @@ export default function RegisterUserScreen({ navigation }) {
       (userCredentials) => {
         const user = userCredentials.user;
         firebaseSaveUser(user, username);
+        setUid(user.uid);
       }
     );
   };

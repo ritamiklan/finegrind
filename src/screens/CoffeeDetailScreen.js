@@ -3,15 +3,23 @@ import { View, Text, Image, Button, TouchableOpacity } from "react-native";
 import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
+import firebaseSaveFavs from "../utils/firebaseSaveFavs";
 
 // detailed page for every individual cafe with all the details, such as name, opening hrs and so on
 
 export default function CoffeeDetailScreen({ route, navigation }) {
   const { id } = route.params;
 
-  const { isLoggedIn } = useUser();
-
   const [coffeeDetail] = useId(id);
+
+  const { isLoggedIn, setFavs, favs, user, uid } = useUser();
+
+  const addToFavs = (id) => {
+    const new_favs = favs;
+    new_favs[id] = 1;
+    setFavs(new_favs);
+    console.log("favs =", favs);
+  };
 
   let buttons;
   if (isLoggedIn) {
@@ -27,7 +35,10 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="Add to favs"
-          onPress={() => console.log("add to favs", id)}
+          onPress={() => {
+            addToFavs(id);
+            firebaseSaveFavs(user, favs, uid);
+          }}
         />
       </View>
     );

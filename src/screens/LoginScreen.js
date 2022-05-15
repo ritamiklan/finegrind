@@ -4,7 +4,6 @@ import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
 import { getDatabase, ref } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
 import { useUser } from "../context/UserContext";
 import { onValue } from "firebase/database";
 
@@ -12,13 +11,13 @@ import { onValue } from "firebase/database";
 
 export default function LoginScreen({ navigation }) {
   const {
-    username,
     email,
     password,
     setUsername,
     setEmail,
     setPassword,
     setIsLoggedIn,
+    setUid,
   } = useUser();
 
   const auth = getAuth(firebaseApp);
@@ -35,6 +34,7 @@ export default function LoginScreen({ navigation }) {
           navigation.navigate("Home");
           setEmail("");
           setPassword("");
+          setUid(user.uid);
         });
       }
     });
