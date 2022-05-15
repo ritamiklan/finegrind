@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Button, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity, Button } from "react-native";
 import { globalStyles } from "../styles/global";
 import { firebaseApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -66,11 +66,13 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
+          style={globalStyles.button}
           color="#6D8B74"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
+          style={globalStyles.button}
           color="#6D8B74"
           title="User Profile"
           onPress={() => navigation.navigate("UserProfile")}
@@ -92,10 +94,15 @@ export default function Home({ navigation }) {
 
   return (
     <View style={globalStyles.container}>
-      <View style={globalStyles.details}>{welcomeText}</View>
-
-      {userProfButton}
-      {loginButtons}
+      <View style={globalStyles.details}>
+        <Image
+          source={require("../../assets/fg_logo.png")}
+          style={{ width: 250, height: 250 }}
+        />
+        {welcomeText}
+        {userProfButton}
+        {loginButtons}
+      </View>
     </View>
   );
 }

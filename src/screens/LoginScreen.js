@@ -41,7 +41,7 @@ export default function LoginScreen({ navigation }) {
           setEmail("");
           setPassword("");
           setUid(user.uid);
-          setFavs(data.favs);
+          if (data.favs) setFavs(data.favs);
         });
       }
     });

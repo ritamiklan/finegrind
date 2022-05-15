@@ -8,10 +8,18 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
   container: {
-    backgroundColor: "#EFEAD8",
+    backgroundColor: "#fff",
     flex: 1,
     justifyContent: "center",
   },
+  mainText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#5F7161",
+  },
+  headerText: {},
+  plainText: {},
+
   loginContainer: {
     flex: 1,
     justifyContent: "center",
@@ -26,6 +34,7 @@ export const globalStyles = StyleSheet.create({
   inputField: {
     borderWidth: 1,
     borderColor: "#6D8B74",
+    borderRadius: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 10,
@@ -46,13 +55,8 @@ export const globalStyles = StyleSheet.create({
     justifyContent: "space-around",
     padding: 50,
   },
-  button: { color: "#6D8B74" },
+  button: { borderRadius: 80 },
   list: {
     margin: 15,
-  },
-  mainText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#5F7161",
   },
 });
