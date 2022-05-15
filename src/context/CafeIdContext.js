@@ -1,20 +1,20 @@
-import React, { createContext, useContext, useState } from "react";
+// import React, { createContext, useContext, useState } from "react";
 
-const IdContext = createContext();
+// const IdContext = createContext();
 
-export const useCafeId = () => useContext(IdContext);
+// export const useCafeId = () => useContext(IdContext);
 
-export default function IdProvider({ children }) {
-  const [cafeId, setCafeId] = useState("");
+// export default function IdProvider({ children }) {
+//   const [cafeId, setCafeId] = useState("");
 
-  return (
-    <IdContext.Provider
-      value={{
-        cafeId,
-        setCafeId,
-      }}
-    >
-      {children}
-    </IdContext.Provider>
-  );
-}
+//   return (
+//     <IdContext.Provider
+//       value={{
+//         cafeId,
+//         setCafeId,
+//       }}
+//     >
+//       {children}
+//     </IdContext.Provider>
+//   );
+// }

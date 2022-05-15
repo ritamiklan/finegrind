@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  KeyboardAvoidingView,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -36,7 +42,6 @@ export default function LoginScreen({ navigation }) {
           setPassword("");
           setUid(user.uid);
           setFavs(data.favs);
-          console.log("LOGGED IN WITH FAVS", data.favs);
         });
       }
     });
@@ -54,6 +59,7 @@ export default function LoginScreen({ navigation }) {
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
+        <Text>Log in to your account</Text>
         <TextInput
           style={globalStyles.inputField}
           placeholder="E-mail"

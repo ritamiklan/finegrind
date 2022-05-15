@@ -18,9 +18,23 @@ export default function Home({ navigation }) {
 
   let welcomeText;
   if (isLoggedIn) {
-    welcomeText = <Text style={globalStyles.mainText}>Hello, {username}!</Text>;
+    welcomeText = (
+      <View>
+        <Text style={globalStyles.mainText}>Hello, {username}!</Text>
+        <Text>Welcome to FineGrind!</Text>
+        <Text>Specialty Cafés at your fingertips!</Text>
+        <Text>Start to explore, save favorites, and enjoy your day!</Text>
+      </View>
+    );
   } else {
-    welcomeText = <Text style={globalStyles.mainText}>Hello!</Text>;
+    welcomeText = (
+      <View>
+        <Text style={globalStyles.mainText}>Hello!</Text>
+        <Text>Welcome to FineGrind!</Text>
+        <Text>Specialty Cafés at your fingertips!</Text>
+        <Text>Log in or register to get the most out of the app!</Text>
+      </View>
+    );
   }
 
   let loginButtons;
@@ -76,9 +90,6 @@ export default function Home({ navigation }) {
     <View style={globalStyles.container}>
       <View style={globalStyles.details}>{welcomeText}</View>
 
-      <Text>Welcome to FineGrind!</Text>
-      <Text>Specialty Cafés at your fingertips!</Text>
-      <Text>Log in or register to get the most out of the app!</Text>
       {userProfButton}
       {loginButtons}
     </View>
