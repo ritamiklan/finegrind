@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/screens/HomeScreen";
 import CoffeeListScreen from "./src/screens/CoffeeListScreen";
 import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
-import ShowMap from "./src/screens/ShowMap";
+import ShowMap from "./src/screens/ShowMapScreen";
 import RegisterUserScreen from "./src/screens/RegisterUserScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import UserProvider from "./src/context/UserContext";
