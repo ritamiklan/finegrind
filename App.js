@@ -9,6 +9,7 @@ import ShowMap from "./src/screens/ShowMapScreen";
 import RegisterUserScreen from "./src/screens/RegisterUserScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import UserProvider from "./src/context/UserContext";
+import UserProfile from "./src/screens/UserProfileScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -33,6 +34,7 @@ export default function App() {
             name="LoginScreen"
             component={LoginScreen}
           />
+          <Stack.Screen name="UserProfile" component={UserProfile} />
         </Stack.Navigator>
       </NavigationContainer>
     </UserProvider>

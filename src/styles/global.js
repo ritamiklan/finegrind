@@ -1,5 +1,11 @@
 import { StyleSheet } from "react-native";
 
+// #5F7161
+// #6D8B74
+// #EFEAD8
+// #D0C9C0
+// https://colorhunt.co/palette/5f71616d8b74efead8d0c9c0
+
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,

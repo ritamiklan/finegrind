@@ -50,6 +50,10 @@ export default function Home({ navigation }) {
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
+        <Button
+          title="User Profile"
+          onPress={() => navigation.navigate("UserProfile")}
+        />
       </View>
       {content}
     </View>
