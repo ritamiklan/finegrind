@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { View, TextInput, Button, KeyboardAvoidingView } from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
-import { getDatabase, ref } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useUser } from "../context/UserContext";
-import { onValue } from "firebase/database";
 
 // LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS (NOT FULLY IMPLEMENTED YET)
 
@@ -18,6 +17,7 @@ export default function LoginScreen({ navigation }) {
     setPassword,
     setIsLoggedIn,
     setUid,
+    setFavs,
   } = useUser();
 
   const auth = getAuth(firebaseApp);
@@ -35,6 +35,8 @@ export default function LoginScreen({ navigation }) {
           setEmail("");
           setPassword("");
           setUid(user.uid);
+          setFavs(data.favs);
+          console.log("LOGGED IN WITH FAVS", data.favs);
         });
       }
     });
