@@ -8,6 +8,7 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
   container: {
+    backgroundColor: "#EFEAD8",
     flex: 1,
     justifyContent: "center",
   },
@@ -24,7 +25,7 @@ export const globalStyles = StyleSheet.create({
   },
   inputField: {
     borderWidth: 1,
-    borderColor: "#333",
+    borderColor: "#6D8B74",
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 10,
@@ -45,12 +46,13 @@ export const globalStyles = StyleSheet.create({
     justifyContent: "space-around",
     padding: 50,
   },
-  button: {},
+  button: { color: "#6D8B74" },
   list: {
     margin: 15,
   },
   mainText: {
     fontSize: 20,
     fontWeight: "bold",
+    color: "#5F7161",
   },
 });

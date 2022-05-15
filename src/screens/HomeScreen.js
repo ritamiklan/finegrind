@@ -16,9 +16,30 @@ export default function Home({ navigation }) {
     setUsername("");
   };
 
-  let content;
+  let welcomeText;
   if (isLoggedIn) {
-    content = (
+    welcomeText = (
+      <View>
+        <Text style={globalStyles.mainText}>Hello, {username}!</Text>
+        <Text>Welcome to FineGrind!</Text>
+        <Text>Specialty Cafés at your fingertips!</Text>
+        <Text>Start to explore, save favorites, and enjoy your day!</Text>
+      </View>
+    );
+  } else {
+    welcomeText = (
+      <View>
+        <Text style={globalStyles.mainText}>Hello!</Text>
+        <Text>Welcome to FineGrind!</Text>
+        <Text>Specialty Cafés at your fingertips!</Text>
+        <Text>Log in or register to get the most out of the app!</Text>
+      </View>
+    );
+  }
+
+  let loginButtons;
+  if (isLoggedIn) {
+    loginButtons = (
       <View style={globalStyles.buttonContainer}>
         <TouchableOpacity onPress={handleSignout}>
           <Text>Log out</Text>
@@ -26,7 +47,7 @@ export default function Home({ navigation }) {
       </View>
     );
   } else {
-    content = (
+    loginButtons = (
       <View style={globalStyles.buttonContainer}>
         <TouchableOpacity
           onPress={() => navigation.navigate("RegisterUserScreen")}
@@ -40,22 +61,41 @@ export default function Home({ navigation }) {
     );
   }
 
-  return (
-    <View style={globalStyles.container}>
-      <View style={globalStyles.details}>
-        <Text style={globalStyles.mainText}>Hello {username}</Text>
-      </View>
+  let userProfButton;
+  if (isLoggedIn) {
+    userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
+          color="#6D8B74"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
+          color="#6D8B74"
           title="User Profile"
           onPress={() => navigation.navigate("UserProfile")}
         />
       </View>
-      {content}
+    );
+  } else {
+    userProfButton = (
+      <View style={globalStyles.buttonContainer}>
+        <Button
+          style={globalStyles.button}
+          color="#6D8B74"
+          title="Cafe list"
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        />
+      </View>
+    );
+  }
+
+  return (
+    <View style={globalStyles.container}>
+      <View style={globalStyles.details}>{welcomeText}</View>
+
+      {userProfButton}
+      {loginButtons}
     </View>
   );
 }

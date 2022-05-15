@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Button, TouchableOpacity } from "react-native";
+import { View, Text, Image, Button } from "react-native";
 import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
@@ -28,6 +28,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="View on map"
+          color="#6D8B74"
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }
@@ -35,6 +36,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="Add to favs"
+          color="#6D8B74"
           onPress={() => {
             addToFavs(id);
             firebaseSaveFavs(user, favs, uid);
@@ -48,6 +50,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="View on map"
+          color="#6D8B74"
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }
@@ -73,10 +76,6 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Text>Fri: {coffeeDetail.attributes.openinghours.fri}</Text>
         <Text>Sat: {coffeeDetail.attributes.openinghours.sat}</Text>
         <Text>Sun: {coffeeDetail.attributes.openinghours.sun}</Text>
-
-        {/* <TouchableOpacity onPress={}>
-          <Text>Show more</Text>
-        </TouchableOpacity> */}
         <Text>Roastery: {coffeeDetail.attributes.roasteries[0].name}</Text>
       </View>
       {buttons}
