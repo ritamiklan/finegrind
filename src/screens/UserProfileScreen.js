@@ -11,11 +11,8 @@ import ListDetail from "../components/ListDetailComponent";
 // list favorites
 
 export default function UserProfile({ navigation }) {
-  const { uid, setFavs, favs } = useUser();
+  const { uid, username } = useUser();
   const [coffeeList] = useList();
-  console.log(" USER PROFILE uid = ", uid);
-
-  console.log(coffeeList);
 
   const db = getDatabase(firebaseApp);
   const userRef = ref(db, "users/" + uid);
@@ -25,12 +22,8 @@ export default function UserProfile({ navigation }) {
 
   onValue(userRef, (snapshot) => {
     const data = snapshot.val();
-
-    console.log(" SNAPHOT ", data);
-    console.log(" FAVS ", data.favs);
     the_favs = data.favs;
     fav_ids = Object.keys(data.favs);
-    console.log(" FAV_IDS ", fav_ids);
     fav_coffeelist = [];
 
     for (let i = 0; i < coffeeList.length; i++) {
@@ -44,24 +37,25 @@ export default function UserProfile({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <Text>User profile screen</Text>
-      {
-        <FlatList
-          style={globalStyles.list}
-          data={fav_coffeelist}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("CoffeeDetailScreen", { id: item.id })
-                }
-              >
-                <ListDetail listitem={item} />
-              </TouchableOpacity>
-            );
-          }}
-        />
-      }
+      <Text>Your username: {username}</Text>
+
+      <Text>Your favorite cafés: </Text>
+      <FlatList
+        style={globalStyles.list}
+        data={fav_coffeelist}
+        keyExtractor={({ id }, index) => id}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("CoffeeDetailScreen", { id: item.id })
+              }
+            >
+              <ListDetail listitem={item} />
+            </TouchableOpacity>
+          );
+        }}
+      />
     </View>
   );
 }
