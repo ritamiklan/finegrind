@@ -16,9 +16,9 @@ export default function Home({ navigation }) {
     setUsername("");
   };
 
-  let content;
+  let loginButtons;
   if (isLoggedIn) {
-    content = (
+    loginButtons = (
       <View style={globalStyles.buttonContainer}>
         <TouchableOpacity onPress={handleSignout}>
           <Text>Log out</Text>
@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
       </View>
     );
   } else {
-    content = (
+    loginButtons = (
       <View style={globalStyles.buttonContainer}>
         <TouchableOpacity
           onPress={() => navigation.navigate("RegisterUserScreen")}
@@ -40,11 +40,9 @@ export default function Home({ navigation }) {
     );
   }
 
-  return (
-    <View style={globalStyles.container}>
-      <View style={globalStyles.details}>
-        <Text style={globalStyles.mainText}>Hello {username}</Text>
-      </View>
+  let userProfButton;
+  if (isLoggedIn) {
+    userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
           title="Cafe list"
@@ -55,7 +53,25 @@ export default function Home({ navigation }) {
           onPress={() => navigation.navigate("UserProfile")}
         />
       </View>
-      {content}
+    );
+  } else {
+    userProfButton = (
+      <View style={globalStyles.buttonContainer}>
+        <Button
+          title="Cafe list"
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        />
+      </View>
+    );
+  }
+
+  return (
+    <View style={globalStyles.container}>
+      <View style={globalStyles.details}>
+        <Text style={globalStyles.mainText}>Hello {username}</Text>
+      </View>
+      {userProfButton}
+      {loginButtons}
     </View>
   );
 }
