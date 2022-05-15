@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, View, TouchableOpacity } from "react-native";
 import useList from "../hooks/useList";
-import ListDetail from "../components/ListDetail";
+import ListDetail from "../components/ListDetailComponent";
 import { globalStyles } from "../styles/global";
 
 // screen for showing all the cafes listed

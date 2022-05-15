@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, Image, Button, TouchableOpacity } from "react-native";
 import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 
@@ -27,6 +27,10 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Text>Fri: {coffeeDetail.attributes.openinghours.fri}</Text>
         <Text>Sat: {coffeeDetail.attributes.openinghours.sat}</Text>
         <Text>Sun: {coffeeDetail.attributes.openinghours.sun}</Text>
+
+        {/* <TouchableOpacity onPress={}>
+          <Text>Show more</Text>
+        </TouchableOpacity> */}
         <Text>Roastery: {coffeeDetail.attributes.roasteries[0].name}</Text>
       </View>
       <View style={globalStyles.buttonContainer}>
