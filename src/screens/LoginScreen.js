@@ -77,7 +77,7 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button title="LOG IN" onPress={handleLogin} />
+        <Button color="#6D8B74" title="LOG IN" onPress={handleLogin} />
       </View>
     </KeyboardAvoidingView>
   );

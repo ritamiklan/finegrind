@@ -28,6 +28,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="View on map"
+          color="#6D8B74"
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }
@@ -35,6 +36,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="Add to favs"
+          color="#6D8B74"
           onPress={() => {
             addToFavs(id);
             firebaseSaveFavs(user, favs, uid);
@@ -48,6 +50,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="View on map"
+          color="#6D8B74"
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }

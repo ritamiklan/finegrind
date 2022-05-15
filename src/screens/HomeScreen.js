@@ -66,10 +66,12 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
+          color="#6D8B74"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
+          color="#6D8B74"
           title="User Profile"
           onPress={() => navigation.navigate("UserProfile")}
         />
@@ -79,6 +81,8 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
+          style={globalStyles.button}
+          color="#6D8B74"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />

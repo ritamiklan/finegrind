@@ -17,24 +17,104 @@ export default function App() {
     <UserProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
-          <Stack.Screen name="ShowMap" component={ShowMap} />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: "Home",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="CoffeeListScreen"
+            component={CoffeeListScreen}
+            options={{
+              title: "Cafés",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="ShowMap"
+            component={ShowMap}
+            options={{
+              title: "Map",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
           <Stack.Screen
             name="CoffeeDetailScreen"
             component={CoffeeDetailScreen}
+            options={{
+              title: "Info",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
             name="RegisterUserScreen"
             component={RegisterUserScreen}
+            options={{
+              title: "Register",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
             name="LoginScreen"
             component={LoginScreen}
+            options={{
+              title: "Log in",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
           />
-          <Stack.Screen name="UserProfile" component={UserProfile} />
+          <Stack.Screen
+            name="UserProfile"
+            component={UserProfile}
+            options={{
+              title: "Profile",
+              headerStyle: {
+                backgroundColor: "#5F7161",
+              },
+              headerTintColor: "#EFEAD8",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </UserProvider>

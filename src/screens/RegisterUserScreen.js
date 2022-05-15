@@ -81,7 +81,7 @@ export default function RegisterUserScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button title="REGISTER" onPress={handleSignup} />
+        <Button color="#6D8B74" title="REGISTER" onPress={handleSignup} />
       </View>
     </KeyboardAvoidingView>
   );
