@@ -32,8 +32,8 @@ export default function Sandbox() {
         latitudeDelta: 0.0043,
         longitudeDelta: 0.0034,
       });
-      console.log(location.coords.latitude); // this works it seems
-      console.log(location.coords.longitude);
+      // console.log(location.coords.latitude); // this works it seems
+      // console.log(location.coords.longitude);
     })();
   }, []);
 

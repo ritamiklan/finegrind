@@ -32,9 +32,7 @@ export default function RegisterUserScreen({ navigation }) {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
         setIsLoggedIn(true);
-
         navigation.navigate("Home");
       }
     });

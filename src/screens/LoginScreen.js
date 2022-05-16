@@ -12,7 +12,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useUser } from "../context/UserContext";
 
-// LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS (NOT FULLY IMPLEMENTED YET)
+// LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS
 
 export default function LoginScreen({ navigation }) {
   const {
