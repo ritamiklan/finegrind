@@ -42,6 +42,7 @@ export default function LoginScreen({ navigation }) {
           setPassword("");
           setUid(user.uid);
           if (data.favs) setFavs(data.favs);
+          else setFavs({});
         });
       }
     });
