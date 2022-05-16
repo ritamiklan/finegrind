@@ -60,7 +60,7 @@ export default function LoginScreen({ navigation }) {
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
-        <Text>Log in to your account</Text>
+        <Text style={globalStyles.headerText}>Log in to your account</Text>
         <TextInput
           style={globalStyles.inputField}
           placeholder="E-mail"

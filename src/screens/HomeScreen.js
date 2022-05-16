@@ -39,42 +39,16 @@ export default function Home({ navigation }) {
     );
   }
 
-  let loginButtons;
-  if (isLoggedIn) {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity onPress={handleSignout}>
-          <Text>Log out</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  } else {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("RegisterUserScreen")}
-        >
-          <Text>Register</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Text>Log in</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
   let userProfButton;
   if (isLoggedIn) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          style={globalStyles.button}
           color="#6D8B74"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
-          style={globalStyles.button}
           color="#6D8B74"
           title="User Profile"
           onPress={() => navigation.navigate("UserProfile")}
@@ -85,7 +59,6 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          style={globalStyles.button}
           color="#6D8B74"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
@@ -94,12 +67,36 @@ export default function Home({ navigation }) {
     );
   }
 
+  let loginButtons;
+  if (isLoggedIn) {
+    loginButtons = (
+      <View style={globalStyles.buttonContainer}>
+        <TouchableOpacity onPress={handleSignout}>
+          <Text style={globalStyles.touchable}>Log out</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  } else {
+    loginButtons = (
+      <View style={globalStyles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("RegisterUserScreen")}
+        >
+          <Text style={globalStyles.touchable}>Register</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+          <Text style={globalStyles.touchable}>Log in</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
   return (
     <View style={globalStyles.container}>
-      <View style={globalStyles.details}>
+      <View>
         <Image
           source={require("../../assets/fg_logo.png")}
-          style={{ width: 250, height: 250 }}
+          style={globalStyles.logo}
         />
         {welcomeText}
         {userProfButton}

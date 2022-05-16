@@ -87,7 +87,9 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         source={{ uri: `${coffeeDetail.attributes.image}` }}
       />
       <View style={globalStyles.details}>
-        <Text>{coffeeDetail.attributes.name}</Text>
+        <Text style={globalStyles.headerText}>
+          {coffeeDetail.attributes.name}
+        </Text>
         <Text>{coffeeDetail.attributes.description}</Text>
         <Text>Hours:</Text>
         <Text>Mon: {coffeeDetail.attributes.openinghours.mon}</Text>

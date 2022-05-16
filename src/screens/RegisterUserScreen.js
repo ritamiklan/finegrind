@@ -53,7 +53,7 @@ export default function RegisterUserScreen({ navigation }) {
   return (
     <KeyboardAvoidingView style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
-        <Text>Please register</Text>
+        <Text style={globalStyles.headerText}>Please register</Text>
         <TextInput
           style={globalStyles.inputField}
           placeholder="Username"
@@ -77,7 +77,7 @@ export default function RegisterUserScreen({ navigation }) {
         />
         <Text>Already have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Text>Log in instead</Text>
+          <Text style={globalStyles.touchable}>Log in instead</Text>
         </TouchableOpacity>
       </View>
       <View style={globalStyles.buttonContainer}>
