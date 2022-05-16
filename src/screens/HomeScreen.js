@@ -21,44 +21,36 @@ export default function Home({ navigation }) {
   let welcomeText;
   if (isLoggedIn) {
     welcomeText = (
-      <View>
+      <View style={globalStyles.textContainer}>
+        <Image
+          source={require("../../assets/fg_logo.png")}
+          style={globalStyles.logo}
+        />
         <Text style={globalStyles.mainText}>Hello, {username}!</Text>
-        <Text>Welcome to FineGrind!</Text>
-        <Text>Specialty Cafés at your fingertips!</Text>
-        <Text>Start to explore, save favorites, and enjoy your day!</Text>
+        <Text style={globalStyles.plainText}>Welcome to FineGrind!</Text>
+        <Text style={globalStyles.plainText}>
+          Specialty Cafés at your fingertips!
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Start to exploreand save your favorites!
+        </Text>
       </View>
     );
   } else {
     welcomeText = (
-      <View>
+      <View style={globalStyles.textContainer}>
+        <Image
+          source={require("../../assets/fg_logo.png")}
+          style={globalStyles.logo}
+        />
         <Text style={globalStyles.mainText}>Hello!</Text>
-        <Text>Welcome to FineGrind!</Text>
-        <Text>Specialty Cafés at your fingertips!</Text>
-        <Text>Log in or register to get the most out of the app!</Text>
-      </View>
-    );
-  }
-
-  let loginButtons;
-  if (isLoggedIn) {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity onPress={handleSignout}>
-          <Text>Log out</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  } else {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("RegisterUserScreen")}
-        >
-          <Text>Register</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Text>Log in</Text>
-        </TouchableOpacity>
+        <Text style={globalStyles.plainText}>Welcome to FineGrind!</Text>
+        <Text style={globalStyles.plainText}>
+          Specialty Cafés at your fingertips!
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Log in or register to get the most out of the app!
+        </Text>
       </View>
     );
   }
@@ -68,14 +60,12 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          style={globalStyles.button}
-          color="#6D8B74"
+          color="#5F7161"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
-          style={globalStyles.button}
-          color="#6D8B74"
+          color="#5F7161"
           title="User Profile"
           onPress={() => navigation.navigate("UserProfile")}
         />
@@ -85,8 +75,7 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          style={globalStyles.button}
-          color="#6D8B74"
+          color="#5F7161"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
@@ -94,17 +83,35 @@ export default function Home({ navigation }) {
     );
   }
 
+  let loginButtons;
+  if (isLoggedIn) {
+    loginButtons = (
+      <View style={globalStyles.buttonContainer}>
+        <TouchableOpacity onPress={handleSignout}>
+          <Text style={globalStyles.touchable}>Log out</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  } else {
+    loginButtons = (
+      <View style={globalStyles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("RegisterUserScreen")}
+        >
+          <Text style={globalStyles.touchable}>Register</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+          <Text style={globalStyles.touchable}>Log in</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
   return (
     <View style={globalStyles.container}>
-      <View style={globalStyles.details}>
-        <Image
-          source={require("../../assets/fg_logo.png")}
-          style={{ width: 250, height: 250 }}
-        />
-        {welcomeText}
-        {userProfButton}
-        {loginButtons}
-      </View>
+      {welcomeText}
+      {userProfButton}
+      {loginButtons}
     </View>
   );
 }

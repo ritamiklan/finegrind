@@ -9,7 +9,7 @@ export default function ShowMap({ route }) {
   return (
     <View style={globalStyles.container}>
       <View style={{ flex: 1 }}>
-        <Text style={{ fontSize: 18 }}>{data.attributes.name}</Text>
+        <Text style={globalStyles.headerText}>{data.attributes.name}</Text>
       </View>
 
       <View style={{ height: 100, flex: 3 }}>
