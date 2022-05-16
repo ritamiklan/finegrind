@@ -5,7 +5,6 @@ import ListDetail from "../components/ListDetailComponent";
 import { globalStyles } from "../styles/global";
 
 // screen for showing all the cafes listed
-// maybe this will be changed to a component and added to welcome screen, not sure yet
 
 const CoffeeListScreen = ({ navigation }) => {
   const [coffeeList] = useList();

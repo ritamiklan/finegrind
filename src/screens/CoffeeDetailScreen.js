@@ -27,7 +27,6 @@ export default function CoffeeDetailScreen({ route, navigation }) {
       buttons = (
         <View style={globalStyles.buttonContainer}>
           <Button
-            style={globalStyles.button}
             title="View on map"
             color="#5F7161"
             onPress={() =>
@@ -35,7 +34,6 @@ export default function CoffeeDetailScreen({ route, navigation }) {
             }
           />
           <Button
-            style={globalStyles.button}
             title="Add to favs"
             color="#5F7161"
             onPress={() => {
@@ -49,19 +47,13 @@ export default function CoffeeDetailScreen({ route, navigation }) {
       buttons = (
         <View style={globalStyles.buttonContainer}>
           <Button
-            style={globalStyles.button}
             title="View on map"
             color="#5F7161"
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
-          <Button
-            style={globalStyles.button}
-            title="Added to favs!"
-            color="#5F7161"
-            onPress={() => {}}
-          />
+          <Button title="Added to favs!" color="#5F7161" onPress={() => {}} />
         </View>
       );
     }
@@ -69,7 +61,6 @@ export default function CoffeeDetailScreen({ route, navigation }) {
     buttons = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          style={globalStyles.button}
           title="View on map"
           color="#5F7161"
           onPress={() =>

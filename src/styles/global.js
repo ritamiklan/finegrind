@@ -51,6 +51,13 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
   },
 
+  details: {
+    // CoffeeDetailsScreen
+    flex: 2,
+    marginHorizontal: 10,
+    justifyContent: "space-around",
+  },
+
   //  T E X T S
 
   mainText: {
@@ -127,13 +134,5 @@ export const globalStyles = StyleSheet.create({
     width: 100,
     height: 100,
     alignSelf: "center",
-  },
-
-  // ???
-
-  details: {
-    flex: 2,
-    marginHorizontal: 10,
-    justifyContent: "space-around",
   },
 });
