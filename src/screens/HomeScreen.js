@@ -8,12 +8,14 @@ import { useUser } from "../context/UserContext";
 export default function Home({ navigation }) {
   const auth = getAuth(firebaseApp);
 
-  const { username, setUsername, isLoggedIn, setIsLoggedIn } = useUser();
+  const { username, setUsername, isLoggedIn, setIsLoggedIn, setFavs } =
+    useUser();
 
   const handleSignout = () => {
     auth.signOut();
     setIsLoggedIn(false);
     setUsername("");
+    setFavs({});
   };
 
   let welcomeText;
