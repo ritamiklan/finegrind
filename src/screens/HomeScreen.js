@@ -21,7 +21,11 @@ export default function Home({ navigation }) {
   let welcomeText;
   if (isLoggedIn) {
     welcomeText = (
-      <View>
+      <View style={globalStyles.textContainer}>
+        <Image
+          source={require("../../assets/fg_logo.png")}
+          style={globalStyles.logo}
+        />
         <Text style={globalStyles.mainText}>Hello, {username}!</Text>
         <Text>Welcome to FineGrind!</Text>
         <Text>Specialty Cafés at your fingertips!</Text>
@@ -30,11 +34,19 @@ export default function Home({ navigation }) {
     );
   } else {
     welcomeText = (
-      <View>
+      <View style={globalStyles.textContainer}>
+        <Image
+          source={require("../../assets/fg_logo.png")}
+          style={globalStyles.logo}
+        />
         <Text style={globalStyles.mainText}>Hello!</Text>
-        <Text>Welcome to FineGrind!</Text>
-        <Text>Specialty Cafés at your fingertips!</Text>
-        <Text>Log in or register to get the most out of the app!</Text>
+        <Text style={globalStyles.plainText}>Welcome to FineGrind!</Text>
+        <Text style={globalStyles.plainText}>
+          Specialty Cafés at your fingertips!
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Log in or register to get the most out of the app!
+        </Text>
       </View>
     );
   }
@@ -93,15 +105,9 @@ export default function Home({ navigation }) {
 
   return (
     <View style={globalStyles.container}>
-      <View>
-        <Image
-          source={require("../../assets/fg_logo.png")}
-          style={globalStyles.logo}
-        />
-        {welcomeText}
-        {userProfButton}
-        {loginButtons}
-      </View>
+      {welcomeText}
+      {userProfButton}
+      {loginButtons}
     </View>
   );
 }

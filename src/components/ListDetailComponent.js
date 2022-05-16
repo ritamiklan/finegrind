@@ -7,11 +7,11 @@ import { globalStyles } from "../styles/global";
 export default function ListDetail({ listitem }) {
   return (
     <View style={globalStyles.listitemContainer}>
-      <Text style={globalStyles.headerText}>{listitem.attributes.name}</Text>
       <Image
         style={globalStyles.listimage}
         source={{ uri: `${listitem.attributes.image}` }}
       />
+      <Text style={globalStyles.cardText}>{listitem.attributes.name}</Text>
     </View>
   );
 }

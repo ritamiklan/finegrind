@@ -66,9 +66,10 @@ export default function UserProfile({ navigation }) {
 
   return (
     <View style={globalStyles.container}>
-      <Text>Your username: {username}</Text>
-
-      <Text>Your favorite cafés: </Text>
+      <View style={globalStyles.textContainer}>
+        <Text>Your username: {username}</Text>
+        <Text>Your favorite cafés: </Text>
+      </View>
       {favlist}
     </View>
   );

@@ -10,15 +10,19 @@ export const globalStyles = StyleSheet.create({
   // C O N T A I N E R S
 
   container: {
-    backgroundColor: "#fff",
     flex: 1,
-    justifyContent: "center",
   },
+
   loginContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+
+  list: {
+    margin: 7,
+  },
+
   listitemContainer: {
     marginTop: 20,
     alignItems: "center",
@@ -27,16 +31,24 @@ export const globalStyles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#EFEAD8",
   },
+
   inputContainer: {
     width: "80%",
     alignItems: "center",
     justifyContent: "center",
     marginLeft: 40,
   },
+
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 50,
+  },
+
+  textContainer: {
+    marginTop: 30,
+    padding: 20,
+    alignItems: "center",
   },
 
   //  T E X T S
@@ -46,6 +58,7 @@ export const globalStyles = StyleSheet.create({
     fontWeight: "bold",
     color: "#5F7161",
   },
+
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
@@ -53,18 +66,36 @@ export const globalStyles = StyleSheet.create({
     margin: 20,
     alignSelf: "center",
   },
-  plainText: {},
+
+  cardText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#5F7161",
+    margin: 5,
+    alignSelf: "center",
+  },
+
+  plainText: {
+    color: "#6D8B74",
+  },
+
+  info: {
+    fontSize: 12,
+    color: "#D0C9C0",
+    alignSelf: "center",
+  },
 
   // I N P U T
 
   inputField: {
     borderWidth: 1,
-    borderColor: "#6D8B74",
+    borderColor: "#5F7161",
     borderRadius: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 10,
     width: "100%",
+    backgroundColor: "#EFEAD8",
   },
 
   // B U T T O N
@@ -72,10 +103,7 @@ export const globalStyles = StyleSheet.create({
   touchable: {
     color: "#6D8B74",
     fontWeight: "bold",
-  },
-
-  list: {
-    margin: 15,
+    fontSize: 16,
   },
 
   // I M A G E S
@@ -87,16 +115,17 @@ export const globalStyles = StyleSheet.create({
   },
 
   listimage: {
-    width: "90%",
+    width: "98%",
     height: 80,
-    borderRadius: 10,
-    marginBottom: 20,
+    borderRadius: 5,
+    marginBottom: 5,
+    marginTop: 5,
   },
 
   logo: {
-    width: 250,
-    height: 250,
-    alignSelf: "flex-start",
+    width: 100,
+    height: 100,
+    alignSelf: "center",
   },
 
   // ???

@@ -75,14 +75,19 @@ export default function RegisterUserScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           autoCapitalize="none"
         />
-        <Text>Already have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Text style={globalStyles.touchable}>Log in instead</Text>
-        </TouchableOpacity>
+        <View style={globalStyles.textContainer}>
+          <Text style={globalStyles.plainText}>Already have an account?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+            <Text style={globalStyles.touchable}>Log in instead</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button color="#6D8B74" title="REGISTER" onPress={handleSignup} />
       </View>
+      <Text style={globalStyles.info}>
+        We won't use your data for anything bad, promise!
+      </Text>
     </KeyboardAvoidingView>
   );
 }
