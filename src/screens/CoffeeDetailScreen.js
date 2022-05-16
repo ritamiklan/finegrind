@@ -29,7 +29,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
           <Button
             style={globalStyles.button}
             title="View on map"
-            color="#6D8B74"
+            color="#5F7161"
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
@@ -37,7 +37,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
           <Button
             style={globalStyles.button}
             title="Add to favs"
-            color="#6D8B74"
+            color="#5F7161"
             onPress={() => {
               addToFavs(id);
               firebaseSaveFavs(user, favs, uid);
@@ -51,7 +51,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
           <Button
             style={globalStyles.button}
             title="View on map"
-            color="#6D8B74"
+            color="#5F7161"
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
@@ -59,7 +59,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
           <Button
             style={globalStyles.button}
             title="Added to favs!"
-            color="#6D8B74"
+            color="#5F7161"
             onPress={() => {}}
           />
         </View>
@@ -71,7 +71,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Button
           style={globalStyles.button}
           title="View on map"
-          color="#6D8B74"
+          color="#5F7161"
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }
@@ -90,16 +90,34 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Text style={globalStyles.headerText}>
           {coffeeDetail.attributes.name}
         </Text>
-        <Text>{coffeeDetail.attributes.description}</Text>
-        <Text>Hours:</Text>
-        <Text>Mon: {coffeeDetail.attributes.openinghours.mon}</Text>
-        <Text>Tue: {coffeeDetail.attributes.openinghours.tue}</Text>
-        <Text>Wed: {coffeeDetail.attributes.openinghours.wed}</Text>
-        <Text>Thu: {coffeeDetail.attributes.openinghours.thu}</Text>
-        <Text>Fri: {coffeeDetail.attributes.openinghours.fri}</Text>
-        <Text>Sat: {coffeeDetail.attributes.openinghours.sat}</Text>
-        <Text>Sun: {coffeeDetail.attributes.openinghours.sun}</Text>
-        <Text>Roastery: {coffeeDetail.attributes.roasteries[0].name}</Text>
+        <Text style={globalStyles.plainText}>
+          {coffeeDetail.attributes.description}
+        </Text>
+        <Text style={globalStyles.plainText}>Hours:</Text>
+        <Text style={globalStyles.plainText}>
+          Mon: {coffeeDetail.attributes.openinghours.mon}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Tue: {coffeeDetail.attributes.openinghours.tue}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Wed: {coffeeDetail.attributes.openinghours.wed}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Thu: {coffeeDetail.attributes.openinghours.thu}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Fri: {coffeeDetail.attributes.openinghours.fri}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Sat: {coffeeDetail.attributes.openinghours.sat}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Sun: {coffeeDetail.attributes.openinghours.sun}
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Roastery: {coffeeDetail.attributes.roasteries[0].name}
+        </Text>
       </View>
       {buttons}
     </View>

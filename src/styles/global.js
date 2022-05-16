@@ -56,13 +56,14 @@ export const globalStyles = StyleSheet.create({
   mainText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#5F7161",
+    color: "#6D8B74",
+    marginBottom: 20,
   },
 
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#5F7161",
+    color: "#6D8B74",
     margin: 20,
     alignSelf: "center",
   },
@@ -76,7 +77,7 @@ export const globalStyles = StyleSheet.create({
   },
 
   plainText: {
-    color: "#6D8B74",
+    color: "#5F7161",
   },
 
   info: {

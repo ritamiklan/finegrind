@@ -27,9 +27,13 @@ export default function Home({ navigation }) {
           style={globalStyles.logo}
         />
         <Text style={globalStyles.mainText}>Hello, {username}!</Text>
-        <Text>Welcome to FineGrind!</Text>
-        <Text>Specialty Cafés at your fingertips!</Text>
-        <Text>Start to explore, save favorites, and enjoy your day!</Text>
+        <Text style={globalStyles.plainText}>Welcome to FineGrind!</Text>
+        <Text style={globalStyles.plainText}>
+          Specialty Cafés at your fingertips!
+        </Text>
+        <Text style={globalStyles.plainText}>
+          Start to exploreand save your favorites!
+        </Text>
       </View>
     );
   } else {
@@ -56,12 +60,12 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          color="#6D8B74"
+          color="#5F7161"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
         <Button
-          color="#6D8B74"
+          color="#5F7161"
           title="User Profile"
           onPress={() => navigation.navigate("UserProfile")}
         />
@@ -71,7 +75,7 @@ export default function Home({ navigation }) {
     userProfButton = (
       <View style={globalStyles.buttonContainer}>
         <Button
-          color="#6D8B74"
+          color="#5F7161"
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />

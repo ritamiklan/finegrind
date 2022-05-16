@@ -61,14 +61,18 @@ export default function UserProfile({ navigation }) {
       />
     );
   } else {
-    favlist = <Text>Such empty, much sad.</Text>;
+    favlist = (
+      <View style={globalStyles.textContainer}>
+        <Text style={globalStyles.plainText}>Such empty, much sad.</Text>
+      </View>
+    );
   }
 
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.textContainer}>
-        <Text>Your username: {username}</Text>
-        <Text>Your favorite cafés: </Text>
+        <Text style={globalStyles.plainText}>Your username: {username}</Text>
+        <Text style={globalStyles.plainText}>Your favorite cafés: </Text>
       </View>
       {favlist}
     </View>
