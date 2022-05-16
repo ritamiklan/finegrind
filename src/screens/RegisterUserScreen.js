@@ -10,7 +10,7 @@ import {
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import firebaseSaveUser from "../utils/firebaseSaveUser";
+import firebaseRegisterUser from "../utils/firebaseRegisterUser";
 import { useUser } from "../context/UserContext";
 
 // FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
@@ -44,7 +44,7 @@ export default function RegisterUserScreen({ navigation }) {
     createUserWithEmailAndPassword(auth, email, password).then(
       (userCredentials) => {
         const user = userCredentials.user;
-        firebaseSaveUser(user, username);
+        firebaseRegisterUser(user, username);
         setUid(user.uid);
       }
     );

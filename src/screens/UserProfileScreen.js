@@ -23,7 +23,13 @@ export default function UserProfile({ navigation }) {
   onValue(userRef, (snapshot) => {
     const data = snapshot.val();
     the_favs = data.favs;
-    fav_ids = Object.keys(data.favs);
+
+    let message;
+
+    if (!the_favs) return;
+    fav_ids = Object.keys(the_favs);
+    if (fav_ids.length == 0) return;
+
     fav_coffeelist = [];
 
     for (let i = 0; i < coffeeList.length; i++) {
@@ -34,12 +40,9 @@ export default function UserProfile({ navigation }) {
     }
   });
 
-  return (
-    <View style={globalStyles.container}>
-      <Text>User profile screen</Text>
-      <Text>Your username: {username}</Text>
-
-      <Text>Your favorite cafés: </Text>
+  let favlist;
+  if (fav_coffeelist.length > 0) {
+    favlist = (
       <FlatList
         style={globalStyles.list}
         data={fav_coffeelist}
@@ -56,6 +59,17 @@ export default function UserProfile({ navigation }) {
           );
         }}
       />
+    );
+  } else {
+    favlist = <Text>Such empty, much sad.</Text>;
+  }
+
+  return (
+    <View style={globalStyles.container}>
+      <Text>Your username: {username}</Text>
+
+      <Text>Your favorite cafés: </Text>
+      {favlist}
     </View>
   );
 }

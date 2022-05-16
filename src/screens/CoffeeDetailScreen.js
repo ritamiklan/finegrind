@@ -15,35 +15,56 @@ export default function CoffeeDetailScreen({ route, navigation }) {
   const { isLoggedIn, setFavs, favs, user, uid } = useUser();
 
   const addToFavs = (id) => {
-    const new_favs = favs;
+    let new_favs = {};
+    if (favs) new_favs = favs;
     new_favs[id] = 1;
     setFavs(new_favs);
-    console.log("favs =", favs);
   };
 
   let buttons;
   if (isLoggedIn) {
-    buttons = (
-      <View style={globalStyles.buttonContainer}>
-        <Button
-          style={globalStyles.button}
-          title="View on map"
-          color="#6D8B74"
-          onPress={() =>
-            navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
-          }
-        />
-        <Button
-          style={globalStyles.button}
-          title="Add to favs"
-          color="#6D8B74"
-          onPress={() => {
-            addToFavs(id);
-            firebaseSaveFavs(user, favs, uid);
-          }}
-        />
-      </View>
-    );
+    if (!favs || !favs.hasOwnProperty(id)) {
+      buttons = (
+        <View style={globalStyles.buttonContainer}>
+          <Button
+            style={globalStyles.button}
+            title="View on map"
+            color="#6D8B74"
+            onPress={() =>
+              navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
+            }
+          />
+          <Button
+            style={globalStyles.button}
+            title="Add to favs"
+            color="#6D8B74"
+            onPress={() => {
+              addToFavs(id);
+              firebaseSaveFavs(user, favs, uid);
+            }}
+          />
+        </View>
+      );
+    } else {
+      buttons = (
+        <View style={globalStyles.buttonContainer}>
+          <Button
+            style={globalStyles.button}
+            title="View on map"
+            color="#6D8B74"
+            onPress={() =>
+              navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
+            }
+          />
+          <Button
+            style={globalStyles.button}
+            title="Added to favs!"
+            color="#6D8B74"
+            onPress={() => {}}
+          />
+        </View>
+      );
+    }
   } else {
     buttons = (
       <View style={globalStyles.buttonContainer}>
