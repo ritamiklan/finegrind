@@ -1,16 +1,41 @@
-# Mobile app done with React Native
+# Mobile app created with React Native
 
-- currently still working on the structure of the screens and components.
-  Next steps:
-- fixing the behaviour of the nested navigation
-- adding the map functionalities
-- write proper documentation instead of these bullet points
+App to list and find specialty cafes in Helsinki, Finland.
 
-To do list:
+## Functionalities
 
-- add photos to the database - added mock images
-- split up the code to screens - sort of done
-- implement navigation between screens - needs to be properly fixed, buggy
-- coords need to be added to API
-- map screen with location
-- make UI somewhat nice-ish
+### Without sign in:
+
+- welcome screen
+- list cafes
+- individual page for cafes displaying details, such as description, photo, opening hours
+- show cafe on map
+
+### Registered user:
+
+- registration (first time user)
+- log in (returning user)
+- list cafes
+- show detailed info page about cafe
+- show cafe on map
+- save cafe to favs list
+- display fav list on user profile
+
+## Techs & Libraries used
+
+- JavaScript
+- React Native
+- Firebase Authentication
+- Firebase Realtime database
+- .env
+- Context
+- Expo
+- React Native Maps
+
+### Possible features to add:
+
+- usability features, such as alerts
+- route planning
+- share on social media
+- search and filtering
+- edit profile

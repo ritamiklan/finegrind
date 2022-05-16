@@ -32,7 +32,7 @@ export default function Home({ navigation }) {
           Specialty Cafés at your fingertips!
         </Text>
         <Text style={globalStyles.plainText}>
-          Start to exploreand save your favorites!
+          Start to explore and save your favorites!
         </Text>
       </View>
     );
