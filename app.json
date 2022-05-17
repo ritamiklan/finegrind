@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "finegrind",
+    "name": "FineGrind",
     "slug": "finegrind",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "This is an app for listing and finding small 3rd wave coffee shops that serve specialty coffee and feature a selection from local roasteries.\n\nCurrently focusing on Helsinki, Finland, but with a possibility to expand to more cities and countries later on."
   }
 }
