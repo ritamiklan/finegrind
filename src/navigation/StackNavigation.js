@@ -1,11 +1,11 @@
 import React from "react";
-import Home from "./src/screens/HomeScreen";
-import CoffeeListScreen from "./src/screens/CoffeeListScreen";
-import CoffeeDetailScreen from "./src/screens/CoffeeDetailScreen";
-import ShowMap from "./src/screens/ShowMapScreen";
-import RegisterUserScreen from "./src/screens/RegisterUserScreen";
-import LoginScreen from "./src/screens/LoginScreen";
-import UserProfile from "./src/screens/UserProfileScreen";
+import Home from "../screens/HomeScreen";
+import CoffeeListScreen from "../screens/CoffeeListScreen";
+import CoffeeDetailScreen from "../screens/CoffeeDetailScreen";
+import ShowMap from "../screens/ShowMapScreen";
+import RegisterUserScreen from "../screens/RegisterUserScreen";
+import LoginScreen from "../screens/LoginScreen";
+import UserProfile from "../screens/UserProfileScreen";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
