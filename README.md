@@ -21,10 +21,6 @@ I am an avid coffee lover, and besides drinking it, in the recent years I also g
 <br />
 <br />
 In the future the mobile app could also have advanced features, such as collecting reviews, sharing on social media, or even collecting virtual stamps in their reward cards. This way they are encouraged to visit more small cafés whereever they are in the city.
-<br />
-<br />
-
-### Try it here: https://expo.dev/@ritamiklan/finegrind
 
 <br />
 <br />
