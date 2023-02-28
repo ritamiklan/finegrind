@@ -11,7 +11,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
-export default function HomeNav() {
+function HomeStack() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -34,3 +34,13 @@ export default function HomeNav() {
     </Stack.Navigator>
   );
 }
+
+function ProfileStackNavigator({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+    </Stack.Navigator>
+  );
+}
+
+export { HomeStack, ProfileStackNavigator };
