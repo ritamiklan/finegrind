@@ -11,7 +11,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
-export default function HomeNav() {
+function HomeStack() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -34,3 +34,71 @@ export default function HomeNav() {
     </Stack.Navigator>
   );
 }
+
+function ProfileStackNavigator({ navigation }) {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5F7161",
+        },
+        headerTintColor: "#EFEAD8",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+    </Stack.Navigator>
+  );
+}
+
+function RegisterStackNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5F7161",
+        },
+        headerTintColor: "#EFEAD8",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+    </Stack.Navigator>
+  );
+}
+
+function FavsStackNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5F7161",
+        },
+        headerTintColor: "#EFEAD8",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
+      <Stack.Screen name="ShowMap" component={ShowMap} />
+      <Stack.Screen name="CoffeeDetailScreen" component={CoffeeDetailScreen} />
+      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+    </Stack.Navigator>
+  );
+}
+
+export {
+  HomeStack,
+  ProfileStackNavigator,
+  RegisterStackNavigator,
+  FavsStackNavigator,
+};
