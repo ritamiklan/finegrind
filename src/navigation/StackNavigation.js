@@ -35,7 +35,7 @@ function HomeStack() {
   );
 }
 
-function ProfileStackNavigator() {
+function ProfileStackNavigator({ navigation }) {
   return (
     <Stack.Navigator
       screenOptions={{
