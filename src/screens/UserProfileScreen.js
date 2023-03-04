@@ -2,17 +2,28 @@ import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { useUser } from "../context/UserContext";
 import firebaseApp from "../utils/firebase";
+import { getAuth } from "firebase/auth";
 import { getDatabase, ref, onValue } from "firebase/database";
 import useList from "../hooks/useList";
 import { globalStyles } from "../styles/global";
 import ListDetail from "../components/ListDetailComponent";
 
 // User profile screen
-// list favorites
+// list favorites --> Will this be a whole another screen?
+// LOG OUT BUTTON LIVES HERE NOW
 
 export default function UserProfile({ navigation }) {
-  const { uid, username } = useUser();
+  const auth = getAuth(firebaseApp);
+  const { uid, username, setUsername, setIsLoggedIn, setFavs } = useUser();
   const [coffeeList] = useList();
+
+  const handleSignout = () => {
+    auth.signOut();
+    setIsLoggedIn(false);
+    setUsername("");
+    setFavs({});
+    navigation.navigate("Home");
+  };
 
   const db = getDatabase(firebaseApp);
   const userRef = ref(db, "users/" + uid);
@@ -23,8 +34,6 @@ export default function UserProfile({ navigation }) {
   onValue(userRef, (snapshot) => {
     const data = snapshot.val();
     the_favs = data.favs;
-
-    let message;
 
     if (!the_favs) return;
     fav_ids = Object.keys(the_favs);
@@ -75,6 +84,11 @@ export default function UserProfile({ navigation }) {
         <Text style={globalStyles.plainText}>Your favorite cafés: </Text>
       </View>
       {favlist}
+      <View style={globalStyles.buttonContainer}>
+        <TouchableOpacity onPress={handleSignout}>
+          <Text style={globalStyles.touchable}>Log out</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

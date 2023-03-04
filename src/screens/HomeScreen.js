@@ -8,15 +8,7 @@ import { useUser } from "../context/UserContext";
 export default function Home({ navigation }) {
   const auth = getAuth(firebaseApp);
 
-  const { username, setUsername, isLoggedIn, setIsLoggedIn, setFavs } =
-    useUser();
-
-  const handleSignout = () => {
-    auth.signOut();
-    setIsLoggedIn(false);
-    setUsername("");
-    setFavs({});
-  };
+  const { username, isLoggedIn } = useUser();
 
   let welcomeText;
   if (isLoggedIn) {
@@ -55,63 +47,16 @@ export default function Home({ navigation }) {
     );
   }
 
-  let userProfButton;
-  if (isLoggedIn) {
-    userProfButton = (
-      <View style={globalStyles.buttonContainer}>
-        <Button
-          color="#5F7161"
-          title="Cafe list"
-          onPress={() => navigation.navigate("CoffeeListScreen")}
-        />
-        <Button
-          color="#5F7161"
-          title="User Profile"
-          onPress={() => navigation.navigate("UserProfile")}
-        />
-      </View>
-    );
-  } else {
-    userProfButton = (
-      <View style={globalStyles.buttonContainer}>
-        <Button
-          color="#5F7161"
-          title="Cafe list"
-          onPress={() => navigation.navigate("CoffeeListScreen")}
-        />
-      </View>
-    );
-  }
-
-  let loginButtons;
-  if (isLoggedIn) {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity onPress={handleSignout}>
-          <Text style={globalStyles.touchable}>Log out</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  } else {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("RegisterUserScreen")}
-        >
-          <Text style={globalStyles.touchable}>Register</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Text style={globalStyles.touchable}>Log in</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
   return (
     <View style={globalStyles.container}>
       {welcomeText}
-      {userProfButton}
-      {loginButtons}
+      <View style={globalStyles.buttonContainer}>
+        <Button
+          color="#5F7161"
+          title="Cafe list"
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        />
+      </View>
     </View>
   );
 }
