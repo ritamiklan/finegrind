@@ -35,12 +35,70 @@ function HomeStack() {
   );
 }
 
-function ProfileStackNavigator({ navigation }) {
+function ProfileStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5F7161",
+        },
+        headerTintColor: "#EFEAD8",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
       <Stack.Screen name="UserProfile" component={UserProfile} />
     </Stack.Navigator>
   );
 }
 
-export { HomeStack, ProfileStackNavigator };
+function RegisterStackNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5F7161",
+        },
+        headerTintColor: "#EFEAD8",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+    </Stack.Navigator>
+  );
+}
+
+function FavsStackNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5F7161",
+        },
+        headerTintColor: "#EFEAD8",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
+      <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
+      <Stack.Screen name="ShowMap" component={ShowMap} />
+      <Stack.Screen name="CoffeeDetailScreen" component={CoffeeDetailScreen} />
+      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="UserProfile" component={UserProfile} />
+    </Stack.Navigator>
+  );
+}
+
+export {
+  HomeStack,
+  ProfileStackNavigator,
+  RegisterStackNavigator,
+  FavsStackNavigator,
+};

@@ -3,15 +3,14 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import UserProvider from "./src/context/UserContext";
 import { SafeAreaView } from "react-native-safe-area-context";
-import MyTabs from "./src/navigation/TabNavigation";
-import HomeNav from "./src/navigation/StackNavigation";
+import TabNavigation from "./src/navigation/TabNavigation";
 
 export default function App() {
   return (
     <UserProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
         <NavigationContainer>
-          <MyTabs />
+          <TabNavigation />
         </NavigationContainer>
       </SafeAreaView>
     </UserProvider>
