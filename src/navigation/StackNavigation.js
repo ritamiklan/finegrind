@@ -66,8 +66,8 @@ function RegisterStackNavigator() {
         },
       }}
     >
-      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
       <Stack.Screen name="UserProfile" component={UserProfile} />
     </Stack.Navigator>
   );

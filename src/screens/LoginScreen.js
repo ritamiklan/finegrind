@@ -5,6 +5,7 @@ import {
   TextInput,
   Button,
   KeyboardAvoidingView,
+  TouchableOpacity,
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import firebaseApp from "../utils/firebase";
@@ -76,6 +77,14 @@ export default function LoginScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           autoCapitalize="none"
         />
+      </View>
+      <View style={globalStyles.textContainer}>
+        <Text style={globalStyles.plainText}>Don't have an account?</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("RegisterUserScreen")}
+        >
+          <Text style={globalStyles.touchable}>Register</Text>
+        </TouchableOpacity>
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button color="#6D8B74" title="LOG IN" onPress={handleLogin} />
