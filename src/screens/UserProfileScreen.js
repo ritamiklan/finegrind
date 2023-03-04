@@ -9,7 +9,8 @@ import { globalStyles } from "../styles/global";
 import ListDetail from "../components/ListDetailComponent";
 
 // User profile screen
-// list favorites
+// list favorites --> Will this be a whole another screen?
+// LOG OUT BUTTON LIVES HERE NOW
 
 export default function UserProfile({ navigation }) {
   const auth = getAuth(firebaseApp);
@@ -33,8 +34,6 @@ export default function UserProfile({ navigation }) {
   onValue(userRef, (snapshot) => {
     const data = snapshot.val();
     the_favs = data.favs;
-
-    let message;
 
     if (!the_favs) return;
     fav_ids = Object.keys(the_favs);
