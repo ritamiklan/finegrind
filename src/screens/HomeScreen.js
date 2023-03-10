@@ -1,13 +1,9 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity, Button } from "react-native";
+import { Text, View, Image, Button } from "react-native";
 import { globalStyles } from "../styles/global";
-import { firebaseApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import { useUser } from "../context/UserContext";
 
 export default function Home({ navigation }) {
-  const auth = getAuth(firebaseApp);
-
   const { username, isLoggedIn } = useUser();
 
   let welcomeText;
