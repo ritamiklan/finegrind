@@ -31,7 +31,7 @@ export default function TabNavigation() {
             }
             return <Ionicons name={iconName} color={color} />;
           },
-          tabBarActiveTintColor: "cyan",
+          tabBarLabel: false,
         })}
       >
         <Tab.Screen name="Home" component={HomeStack} />
