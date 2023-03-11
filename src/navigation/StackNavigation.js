@@ -6,6 +6,7 @@ import ShowMap from "../screens/ShowMapScreen";
 import RegisterUserScreen from "../screens/RegisterUserScreen";
 import LoginScreen from "../screens/LoginScreen";
 import UserProfile from "../screens/UserProfileScreen";
+import color from "../styles/color";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -16,9 +17,9 @@ function HomeStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#5F7161",
+          backgroundColor: color.darkGreen,
         },
-        headerTintColor: "#EFEAD8",
+        headerTintColor: color.light,
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -40,9 +41,9 @@ function ProfileStackNavigator({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#5F7161",
+          backgroundColor: color.darkGreen,
         },
-        headerTintColor: "#EFEAD8",
+        headerTintColor: color.light,
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -58,9 +59,9 @@ function RegisterStackNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#5F7161",
+          backgroundColor: color.darkGreen,
         },
-        headerTintColor: "#EFEAD8",
+        headerTintColor: color.light,
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -78,9 +79,9 @@ function FavsStackNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#5F7161",
+          backgroundColor: color.darkGreen,
         },
-        headerTintColor: "#EFEAD8",
+        headerTintColor: color.light,
         headerTitleStyle: {
           fontWeight: "bold",
         },

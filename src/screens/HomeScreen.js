@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, Image, Button } from "react-native";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
 
 export default function Home({ navigation }) {
   const { username, isLoggedIn } = useUser();
@@ -48,7 +49,7 @@ export default function Home({ navigation }) {
       {welcomeText}
       <View style={globalStyles.buttonContainer}>
         <Button
-          color="#5F7161"
+          color={color.darkGreen}
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
