@@ -4,6 +4,7 @@ import { globalStyles } from "../styles/global";
 import { firebaseApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
 
 export default function Home({ navigation }) {
   const auth = getAuth(firebaseApp);
@@ -52,7 +53,7 @@ export default function Home({ navigation }) {
       {welcomeText}
       <View style={globalStyles.buttonContainer}>
         <Button
-          color="#5F7161"
+          color={color.darkGreen}
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />
