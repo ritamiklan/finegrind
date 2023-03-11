@@ -1,7 +1,8 @@
 import React from "react";
 import { useUser } from "../context/UserContext";
 import { Ionicons } from "@expo/vector-icons";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import color from "../styles/color";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   HomeStack,
   ProfileStackNavigator,
@@ -9,7 +10,7 @@ import {
   FavsStackNavigator,
 } from "./StackNavigation";
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function TabNavigation() {
   const { isLoggedIn } = useUser();
@@ -29,9 +30,12 @@ export default function TabNavigation() {
             } else if (rn === "Log In") {
               iconName = focused ? "log-in" : "log-in-outline";
             }
-            return <Ionicons name={iconName} color={color} />;
+            return <Ionicons name={iconName} color={color} size={size} />;
           },
-          tabBarLabel: false,
+          tabBarActiveTintColor: color.darkGreen,
+          tabBarInactiveTintColor: color.lightGreen,
+          tabBarShowLabel: false,
+          headerShown: false,
         })}
       >
         <Tab.Screen name="Home" component={HomeStack} />
@@ -53,8 +57,12 @@ export default function TabNavigation() {
             } else if (rn === "Profile") {
               iconName = focused ? "person" : "person-outline";
             }
-            return <Ionicons name={iconName} />;
+            return <Ionicons name={iconName} color={color} size={size} />;
           },
+          tabBarActiveTintColor: color.darkGreen,
+          tabBarInactiveTintColor: color.lightGreen,
+          tabBarShowLabel: false,
+          headerShown: false,
         })}
       >
         <Tab.Screen name="Home" component={HomeStack} />

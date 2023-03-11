@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import color from "./color";
 
 // #5F7161
 // #6D8B74
@@ -7,6 +8,8 @@ import { StyleSheet } from "react-native";
 // https://colorhunt.co/palette/5f71616d8b74efead8d0c9c0
 
 export const globalStyles = StyleSheet.create({
+  // C O L O R S
+
   // C O N T A I N E R S
 
   container: {
