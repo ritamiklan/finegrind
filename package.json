@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-native-firebase/app": "^16.5.0",
-    "@react-navigation/material-bottom-tabs": "^6.2.15",
+    "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
     "dotenv": "^16.0.3",
