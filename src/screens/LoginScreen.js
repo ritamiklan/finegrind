@@ -12,6 +12,7 @@ import firebaseApp from "../utils/firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
 
 // LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS
 
@@ -87,7 +88,7 @@ export default function LoginScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button color="#6D8B74" title="LOG IN" onPress={handleLogin} />
+        <Button color={color.lightGreen} title="LOG IN" onPress={handleLogin} />
       </View>
     </KeyboardAvoidingView>
   );

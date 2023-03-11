@@ -12,6 +12,7 @@ import firebaseApp from "../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import firebaseRegisterUser from "../utils/firebaseRegisterUser";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
 
 // FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
 
@@ -81,7 +82,11 @@ export default function RegisterUserScreen({ navigation }) {
         </View>
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button color="#6D8B74" title="REGISTER" onPress={handleSignup} />
+        <Button
+          color={color.lightGreen}
+          title="REGISTER"
+          onPress={handleSignup}
+        />
       </View>
       <Text style={globalStyles.info}>
         We won't use your data for anything bad, promise!
