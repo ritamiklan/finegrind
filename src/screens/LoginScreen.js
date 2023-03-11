@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { globalStyles } from "../styles/global";
-import firebaseApp from "../utils/firebase";
+import firebaseApp, { auth } from "../utils/firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useUser } from "../context/UserContext";
 import color from "../styles/color";
 
@@ -27,8 +27,6 @@ export default function LoginScreen({ navigation }) {
     setUid,
     setFavs,
   } = useUser();
-
-  const auth = getAuth(firebaseApp);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -60,7 +58,7 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <KeyboardAvoidingView style={globalStyles.container}>
+    <KeyboardAvoidingView behavior="padding" style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
         <Text style={globalStyles.headerText}>Log in to your account</Text>
         <TextInput
@@ -79,6 +77,9 @@ export default function LoginScreen({ navigation }) {
           autoCapitalize="none"
         />
       </View>
+      <View style={globalStyles.buttonContainer}>
+        <Button color={color.lightGreen} title="LOG IN" onPress={handleLogin} />
+      </View>
       <View style={globalStyles.textContainer}>
         <Text style={globalStyles.plainText}>Don't have an account?</Text>
         <TouchableOpacity
@@ -86,9 +87,6 @@ export default function LoginScreen({ navigation }) {
         >
           <Text style={globalStyles.touchable}>Register</Text>
         </TouchableOpacity>
-      </View>
-      <View style={globalStyles.buttonContainer}>
-        <Button color={color.lightGreen} title="LOG IN" onPress={handleLogin} />
       </View>
     </KeyboardAvoidingView>
   );
