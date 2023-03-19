@@ -22,9 +22,11 @@ export default function HomeScreen({ navigation }) {
 
       let currentLocation = await Location.getCurrentPositionAsync({});
       setLocation(currentLocation);
-      setUserLoc(currentLocation);
+      setUserLoc(location);
     })();
   }, []);
+
+  console.log(userLoc);
 
   let welcomeText;
   if (isLoggedIn) {
@@ -68,12 +70,12 @@ export default function HomeScreen({ navigation }) {
       {welcomeText}
 
       <View style={{ height: 100, flex: 3 }}>
-        {userLoc && (
+        {location && (
           <MapView
             style={StyleSheet.absoluteFillObject}
             region={{
-              latitude: userLoc.coords.latitude,
-              longitude: userLoc.coords.longitude,
+              latitude: location.coords.latitude,
+              longitude: location.coords.longitude,
               latitudeDelta: 0.0043,
               longitudeDelta: 0.0034,
             }}
@@ -81,8 +83,8 @@ export default function HomeScreen({ navigation }) {
           >
             <Marker
               coordinate={{
-                latitude: userLoc.coords.latitude,
-                longitude: userLoc.coords.longitude,
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude,
                 latitudeDelta: 0.0043,
                 longitudeDelta: 0.0034,
               }}

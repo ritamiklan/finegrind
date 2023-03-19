@@ -6,6 +6,7 @@ import ShowMap from "../screens/ShowMapScreen";
 import RegisterUserScreen from "../screens/RegisterUserScreen";
 import LoginScreen from "../screens/LoginScreen";
 import UserProfile from "../screens/UserProfileScreen";
+import FavoriteScreen from "../screens/FavoriteScreen";
 import color from "../styles/color";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -60,6 +61,11 @@ function HomeStack() {
         component={UserProfile}
         options={{ title: "Profile" }}
       />
+      <Stack.Screen
+        name="FavproteSCreen"
+        component={FavoriteScreen}
+        options={{ title: "Favorites" }}
+      />
     </Stack.Navigator>
   );
 }
@@ -81,6 +87,11 @@ function ProfileStackNavigator({ navigation }) {
         name="UserProfile"
         component={UserProfile}
         options={{ title: "Profile" }}
+      />
+      <Stack.Screen
+        name="FavproteSCreen"
+        component={FavoriteScreen}
+        options={{ title: "Favorites" }}
       />
     </Stack.Navigator>
   );
@@ -131,6 +142,11 @@ function FavsStackNavigator() {
         },
       }}
     >
+      <Stack.Screen
+        name="FavproteSCreen"
+        component={FavoriteScreen}
+        options={{ title: "Favorites" }}
+      />
       <Stack.Screen
         name="CoffeeListScreen"
         component={CoffeeListScreen}
