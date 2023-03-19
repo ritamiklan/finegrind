@@ -7,9 +7,6 @@ import TabNavigation from "./src/navigation/TabNavigation";
 import color from "./src/styles/color";
 
 export default function App() {
-  // let lat = location.coords.latitude;
-  // let long = location.coords.longitude;
-
   return (
     <UserProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: color.white }}>

@@ -7,7 +7,7 @@ import MapView, { Marker } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import * as Location from "expo-location";
 
-export default function Home({ navigation }) {
+export default function HomeScreen({ navigation }) {
   const { username, isLoggedIn, userLoc, setUserLoc } = useUser();
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -25,10 +25,6 @@ export default function Home({ navigation }) {
       setUserLoc(currentLocation);
     })();
   }, []);
-
-  console.log("location from home screen", location);
-
-  console.log("location in context", userLoc);
 
   let welcomeText;
   if (isLoggedIn) {
