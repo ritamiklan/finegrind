@@ -28,6 +28,8 @@ export default function Home({ navigation }) {
 
   console.log("location from home screen", location);
 
+  console.log("location in context", userLoc);
+
   let welcomeText;
   if (isLoggedIn) {
     welcomeText = (
@@ -68,26 +70,29 @@ export default function Home({ navigation }) {
   return (
     <View style={globalStyles.container}>
       {welcomeText}
+
       <View style={{ height: 100, flex: 3 }}>
-        <MapView
-          style={StyleSheet.absoluteFillObject}
-          region={{
-            latitude: userLoc.coords.latitude,
-            longitude: userLoc.coords.longitude,
-            latitudeDelta: 0.0043,
-            longitudeDelta: 0.0034,
-          }}
-          provider="google"
-        >
-          <Marker
-            coordinate={{
+        {userLoc && (
+          <MapView
+            style={StyleSheet.absoluteFillObject}
+            region={{
               latitude: userLoc.coords.latitude,
               longitude: userLoc.coords.longitude,
               latitudeDelta: 0.0043,
               longitudeDelta: 0.0034,
             }}
-          />
-        </MapView>
+            provider="google"
+          >
+            <Marker
+              coordinate={{
+                latitude: userLoc.coords.latitude,
+                longitude: userLoc.coords.longitude,
+                latitudeDelta: 0.0043,
+                longitudeDelta: 0.0034,
+              }}
+            />
+          </MapView>
+        )}
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button
