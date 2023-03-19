@@ -11,6 +11,7 @@ export default function UserProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [favs, setFavs] = useState({});
   const [uid, setUid] = useState("");
+  const [userLoc, setUserLoc] = useState(null);
 
   return (
     <UserContext.Provider
@@ -21,6 +22,8 @@ export default function UserProvider({ children }) {
         isLoggedIn,
         favs,
         uid,
+        userLoc,
+        setUserLoc,
         setUsername,
         setEmail,
         setPassword,
