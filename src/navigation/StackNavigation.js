@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../screens/HomeScreen";
+import HomeScreen from "../screens/HomeScreen";
 import CoffeeListScreen from "../screens/CoffeeListScreen";
 import CoffeeDetailScreen from "../screens/CoffeeDetailScreen";
 import ShowMap from "../screens/ShowMapScreen";
@@ -25,13 +25,41 @@ function HomeStack() {
         },
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
-      <Stack.Screen name="ShowMap" component={ShowMap} />
-      <Stack.Screen name="CoffeeDetailScreen" component={CoffeeDetailScreen} />
-      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="UserProfile" component={UserProfile} />
+      <Stack.Screen
+        name="HomeSreen"
+        component={HomeScreen}
+        options={{ title: "Home" }}
+      />
+      <Stack.Screen
+        name="CoffeeListScreen"
+        component={CoffeeListScreen}
+        options={{ title: "List of Cafes" }}
+      />
+      <Stack.Screen
+        name="ShowMap"
+        component={ShowMap}
+        options={{ title: "Map" }}
+      />
+      <Stack.Screen
+        name="CoffeeDetailScreen"
+        component={CoffeeDetailScreen}
+        options={{ title: "Cafe page" }}
+      />
+      <Stack.Screen
+        name="RegisterUserScreen"
+        component={RegisterUserScreen}
+        options={{ title: "Register" }}
+      />
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ title: "Log in" }}
+      />
+      <Stack.Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{ title: "Profile" }}
+      />
     </Stack.Navigator>
   );
 }
@@ -49,7 +77,11 @@ function ProfileStackNavigator({ navigation }) {
         },
       }}
     >
-      <Stack.Screen name="UserProfile" component={UserProfile} />
+      <Stack.Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{ title: "Profile" }}
+      />
     </Stack.Navigator>
   );
 }
@@ -67,9 +99,21 @@ function RegisterStackNavigator() {
         },
       }}
     >
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
-      <Stack.Screen name="UserProfile" component={UserProfile} />
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ title: "Log in" }}
+      />
+      <Stack.Screen
+        name="RegisterUserScreen"
+        component={RegisterUserScreen}
+        options={{ title: "Register" }}
+      />
+      <Stack.Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{ title: "Profile" }}
+      />
     </Stack.Navigator>
   );
 }
@@ -87,12 +131,36 @@ function FavsStackNavigator() {
         },
       }}
     >
-      <Stack.Screen name="CoffeeListScreen" component={CoffeeListScreen} />
-      <Stack.Screen name="ShowMap" component={ShowMap} />
-      <Stack.Screen name="CoffeeDetailScreen" component={CoffeeDetailScreen} />
-      <Stack.Screen name="RegisterUserScreen" component={RegisterUserScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="UserProfile" component={UserProfile} />
+      <Stack.Screen
+        name="CoffeeListScreen"
+        component={CoffeeListScreen}
+        options={{ title: "List of cafes" }}
+      />
+      <Stack.Screen
+        name="ShowMap"
+        component={ShowMap}
+        options={{ title: "Map" }}
+      />
+      <Stack.Screen
+        name="CoffeeDetailScreen"
+        component={CoffeeDetailScreen}
+        options={{ title: "Cafe page" }}
+      />
+      <Stack.Screen
+        name="RegisterUserScreen"
+        component={RegisterUserScreen}
+        options={{ title: "Register" }}
+      />
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ title: "Log in" }}
+      />
+      <Stack.Screen
+        name="UserProfile"
+        component={UserProfile}
+        options={{ title: "Profile" }}
+      />
     </Stack.Navigator>
   );
 }
