@@ -22,9 +22,9 @@ export const globalStyles = StyleSheet.create({
     marginTop: 20,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: color.lightGreen,
+    borderColor: color.darkGreen,
     borderRadius: 10,
-    backgroundColor: color.light,
+    backgroundColor: color.lightGrey,
   },
 
   inputContainer: {
@@ -98,7 +98,7 @@ export const globalStyles = StyleSheet.create({
     paddingVertical: 10,
     marginTop: 10,
     width: "100%",
-    backgroundColor: color.light,
+    backgroundColor: color.white,
   },
 
   // B U T T O N

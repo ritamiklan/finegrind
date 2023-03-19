@@ -63,7 +63,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
           />
           <Button
             title="Remove from favs"
-            color={color.darkGreen}
+            color={color.lightGreen}
             onPress={() => {
               removeFav(id);
             }}
