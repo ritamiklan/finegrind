@@ -12,5 +12,5 @@ export function firebaseSaveFavs(user, favs, uid) {
 export function firebaseRemoveFavs(uid, favID) {
   const db = getDatabase(firebaseApp);
 
-  remove(ref(db, "users/" + uid, favID));
+  remove(`users/${uid}/favs/${favID}`);
 }

@@ -26,9 +26,9 @@ export default function CoffeeDetailScreen({ route, navigation }) {
     setFavs(new_favs);
   };
 
-  const removeFav = (uid, id) => {
+  const removeFav = (id) => {
     console.log(id);
-    // firebaseRemoveFavs(uid, id);
+    firebaseRemoveFavs(uid, id);
   };
 
   let buttons;
@@ -67,8 +67,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
             title="Remove from favs"
             color={color.lightGreen}
             onPress={() => {
-              const favId = coffeeDetail.attributes.id;
-              removeFav(favId);
+              removeFav(id);
             }}
           />
         </View>
