@@ -3,10 +3,7 @@ import { View, Text, Image, Button } from "react-native";
 import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
-import {
-  firebaseSaveFavs,
-  firebaseRemoveFavs,
-} from "../utils/firebaseSaveFavs";
+import { firebaseSaveFavs } from "../utils/firebaseSaveFavs";
 import color from "../styles/color";
 
 // detailed page for every individual cafe with all the details, such as name, opening hrs and so on
