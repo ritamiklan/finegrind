@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import config from "./config";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBHUMoBus1-MFNmC5lW0ofc2dYOMaqVuKw",
-  authDomain: "coffee-project-fb90f.firebaseapp.com",
-  databaseURL:
-    "https://coffee-project-fb90f-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "coffee-project-fb90f",
-  storageBucket: "coffee-project-fb90f.appspot.com",
-  messagingSenderId: "958953967996",
-  appId: "1:958953967996:web:00ca8cc0135b039057d4f9",
+  apiKey: config.FB_APIKEY,
+  authDomain: config.AUTH_DOMAIN,
+  databaseURL: config.DB_URL,
+  projectId: config.PROJECT_ID,
+  storageBucket: config.STORAGE_BUCKET,
+  messagingSenderId: config.MSG_SENDER_ID,
+  appId: config.APP_ID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

@@ -1,3 +1,21 @@
-import {API_URL} from "@env";
+import {
+  API_URL,
+  FB_APIKEY,
+  AUTH_DOMAIN,
+  DB_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MSG_SENDER_ID,
+  APP_ID,
+} from "@env";
 
-export default {API_URL};
+export default {
+  API_URL,
+  FB_APIKEY,
+  AUTH_DOMAIN,
+  DB_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MSG_SENDER_ID,
+  APP_ID,
+};
