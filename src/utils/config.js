@@ -1,21 +1,21 @@
 import {
   API_URL,
-  FB_APIKEY,
+  APP_ID,
   AUTH_DOMAIN,
   DB_URL,
+  FB_APIKEY,
+  MSG_SENDER_ID,
   PROJECT_ID,
   STORAGE_BUCKET,
-  MSG_SENDER_ID,
-  APP_ID,
 } from "@env";
 
 export default {
   API_URL,
-  FB_APIKEY,
+  APP_ID,
   AUTH_DOMAIN,
   DB_URL,
+  FB_APIKEY,
+  MSG_SENDER_ID,
   PROJECT_ID,
   STORAGE_BUCKET,
-  MSG_SENDER_ID,
-  APP_ID,
 };
