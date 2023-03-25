@@ -3,7 +3,10 @@ import { View, Text, Image, Button } from "react-native";
 import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
-import { firebaseSaveFavs } from "../utils/firebaseSaveFavs";
+import {
+  firebaseRemoveFavs,
+  firebaseSaveFavs,
+} from "../utils/firebaseSaveFavs";
 import color from "../styles/color";
 
 // detailed page for every individual cafe with all the details, such as name, opening hrs and so on
@@ -12,6 +15,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
   const { id } = route.params;
 
   const [coffeeDetail] = useId(id);
+  console.log(coffeeDetail);
 
   const { isLoggedIn, setFavs, favs, user, uid } = useUser();
 
@@ -22,8 +26,9 @@ export default function CoffeeDetailScreen({ route, navigation }) {
     setFavs(new_favs);
   };
 
-  const removeFav = (id) => {
+  const removeFav = (uid, id) => {
     console.log(id);
+    // firebaseRemoveFavs(uid, id);
   };
 
   let buttons;
@@ -62,7 +67,8 @@ export default function CoffeeDetailScreen({ route, navigation }) {
             title="Remove from favs"
             color={color.lightGreen}
             onPress={() => {
-              removeFav(id);
+              const favId = coffeeDetail.attributes.id;
+              removeFav(favId);
             }}
           />
         </View>
