@@ -8,10 +8,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { globalStyles } from "../styles/global";
-import firebaseApp from "../utils/firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import firebaseRegisterUser from "../utils/firebaseRegisterUser";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
 
 // FIRST TIME REGISTER FOR USERS, DATA SAVED TO DB
 
@@ -26,8 +27,6 @@ export default function RegisterUserScreen({ navigation }) {
     setPassword,
     setUid,
   } = useUser();
-
-  const auth = getAuth(firebaseApp);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -49,7 +48,7 @@ export default function RegisterUserScreen({ navigation }) {
   };
 
   return (
-    <KeyboardAvoidingView style={globalStyles.container}>
+    <KeyboardAvoidingView behavior="padding" style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
         <Text style={globalStyles.headerText}>Please register</Text>
         <TextInput
@@ -73,15 +72,19 @@ export default function RegisterUserScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           autoCapitalize="none"
         />
-        <View style={globalStyles.textContainer}>
-          <Text style={globalStyles.plainText}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-            <Text style={globalStyles.touchable}>Log in instead</Text>
-          </TouchableOpacity>
-        </View>
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button color="#6D8B74" title="REGISTER" onPress={handleSignup} />
+        <Button
+          color={color.lightGreen}
+          title="REGISTER"
+          onPress={handleSignup}
+        />
+      </View>
+      <View style={globalStyles.textContainer}>
+        <Text style={globalStyles.plainText}>Already have an account?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+          <Text style={globalStyles.touchable}>Log in instead</Text>
+        </TouchableOpacity>
       </View>
       <Text style={globalStyles.info}>
         We won't use your data for anything bad, promise!

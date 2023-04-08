@@ -1,10 +1,5 @@
 import { StyleSheet } from "react-native";
-
-// #5F7161
-// #6D8B74
-// #EFEAD8
-// #D0C9C0
-// https://colorhunt.co/palette/5f71616d8b74efead8d0c9c0
+import color from "./color";
 
 export const globalStyles = StyleSheet.create({
   // C O N T A I N E R S
@@ -27,9 +22,9 @@ export const globalStyles = StyleSheet.create({
     marginTop: 20,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#6D8B74",
+    borderColor: color.darkGreen,
     borderRadius: 10,
-    backgroundColor: "#EFEAD8",
+    backgroundColor: color.lightGrey,
   },
 
   inputContainer: {
@@ -63,14 +58,14 @@ export const globalStyles = StyleSheet.create({
   mainText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#6D8B74",
+    color: color.lightGreen,
     marginBottom: 20,
   },
 
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#6D8B74",
+    color: color.lightGreen,
     margin: 20,
     alignSelf: "center",
   },
@@ -78,18 +73,18 @@ export const globalStyles = StyleSheet.create({
   cardText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#5F7161",
+    color: color.darkGreen,
     margin: 5,
     alignSelf: "center",
   },
 
   plainText: {
-    color: "#5F7161",
+    color: color.darkGreen,
   },
 
   info: {
     fontSize: 12,
-    color: "#D0C9C0",
+    color: color.medium,
     alignSelf: "center",
   },
 
@@ -97,19 +92,19 @@ export const globalStyles = StyleSheet.create({
 
   inputField: {
     borderWidth: 1,
-    borderColor: "#5F7161",
+    borderColor: color.darkGreen,
     borderRadius: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 10,
     width: "100%",
-    backgroundColor: "#EFEAD8",
+    backgroundColor: color.white,
   },
 
   // B U T T O N
 
   touchable: {
-    color: "#6D8B74",
+    color: color.lightGreen,
     fontWeight: "bold",
     fontSize: 16,
   },

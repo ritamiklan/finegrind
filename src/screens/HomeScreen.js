@@ -1,22 +1,32 @@
-import React from "react";
-import { Text, View, Image, TouchableOpacity, Button } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, Image, Button } from "react-native";
 import { globalStyles } from "../styles/global";
-import { firebaseApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
+import MapView, { Marker } from "react-native-maps";
+import { StyleSheet } from "react-native";
+import * as Location from "expo-location";
 
-export default function Home({ navigation }) {
-  const auth = getAuth(firebaseApp);
+export default function HomeScreen({ navigation }) {
+  const { username, isLoggedIn, userLoc, setUserLoc } = useUser();
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
-  const { username, setUsername, isLoggedIn, setIsLoggedIn, setFavs } =
-    useUser();
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
 
-  const handleSignout = () => {
-    auth.signOut();
-    setIsLoggedIn(false);
-    setUsername("");
-    setFavs({});
-  };
+      let currentLocation = await Location.getCurrentPositionAsync({});
+      setLocation(currentLocation);
+      setUserLoc(location);
+    })();
+  }, []);
+
+  console.log(userLoc);
 
   let welcomeText;
   if (isLoggedIn) {
@@ -55,63 +65,40 @@ export default function Home({ navigation }) {
     );
   }
 
-  let userProfButton;
-  if (isLoggedIn) {
-    userProfButton = (
-      <View style={globalStyles.buttonContainer}>
-        <Button
-          color="#5F7161"
-          title="Cafe list"
-          onPress={() => navigation.navigate("CoffeeListScreen")}
-        />
-        <Button
-          color="#5F7161"
-          title="User Profile"
-          onPress={() => navigation.navigate("UserProfile")}
-        />
-      </View>
-    );
-  } else {
-    userProfButton = (
-      <View style={globalStyles.buttonContainer}>
-        <Button
-          color="#5F7161"
-          title="Cafe list"
-          onPress={() => navigation.navigate("CoffeeListScreen")}
-        />
-      </View>
-    );
-  }
-
-  let loginButtons;
-  if (isLoggedIn) {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity onPress={handleSignout}>
-          <Text style={globalStyles.touchable}>Log out</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  } else {
-    loginButtons = (
-      <View style={globalStyles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("RegisterUserScreen")}
-        >
-          <Text style={globalStyles.touchable}>Register</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Text style={globalStyles.touchable}>Log in</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
   return (
     <View style={globalStyles.container}>
       {welcomeText}
-      {userProfButton}
-      {loginButtons}
+
+      <View style={{ height: 100, flex: 3 }}>
+        {location && (
+          <MapView
+            style={StyleSheet.absoluteFillObject}
+            region={{
+              latitude: location.coords.latitude,
+              longitude: location.coords.longitude,
+              latitudeDelta: 0.0043,
+              longitudeDelta: 0.0034,
+            }}
+            provider="google"
+          >
+            <Marker
+              coordinate={{
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude,
+                latitudeDelta: 0.0043,
+                longitudeDelta: 0.0034,
+              }}
+            />
+          </MapView>
+        )}
+      </View>
+      <View style={globalStyles.buttonContainer}>
+        <Button
+          color={color.darkGreen}
+          title="Cafe list"
+          onPress={() => navigation.navigate("CoffeeListScreen")}
+        />
+      </View>
     </View>
   );
 }

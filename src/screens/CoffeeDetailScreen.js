@@ -3,7 +3,8 @@ import { View, Text, Image, Button } from "react-native";
 import useId from "../hooks/useId";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
-import firebaseSaveFavs from "../utils/firebaseSaveFavs";
+import { firebaseRemoveFavs, firebaseSaveFavs } from "../utils/firebaseFavs";
+import color from "../styles/color";
 
 // detailed page for every individual cafe with all the details, such as name, opening hrs and so on
 
@@ -11,14 +12,21 @@ export default function CoffeeDetailScreen({ route, navigation }) {
   const { id } = route.params;
 
   const [coffeeDetail] = useId(id);
+  console.log(coffeeDetail);
 
-  const { isLoggedIn, setFavs, favs, user, uid } = useUser();
+  const { isLoggedIn, setFavs, favs, uid } = useUser();
 
+  // setting favs to context
   const addToFavs = (id) => {
     let new_favs = {};
     if (favs) new_favs = favs;
     new_favs[id] = 1;
     setFavs(new_favs);
+  };
+
+  // remove favs from db
+  const removeFav = (id) => {
+    firebaseRemoveFavs(uid, id);
   };
 
   let buttons;
@@ -28,17 +36,17 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <View style={globalStyles.buttonContainer}>
           <Button
             title="View on map"
-            color="#5F7161"
+            color={color.darkGreen}
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
           <Button
             title="Add to favs"
-            color="#5F7161"
+            color={color.darkGreen}
             onPress={() => {
               addToFavs(id);
-              firebaseSaveFavs(user, favs, uid);
+              firebaseSaveFavs(favs, uid);
             }}
           />
         </View>
@@ -48,12 +56,18 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <View style={globalStyles.buttonContainer}>
           <Button
             title="View on map"
-            color="#5F7161"
+            color={color.darkGreen}
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
-          <Button title="Added to favs!" color="#5F7161" onPress={() => {}} />
+          <Button
+            title="Remove from favs"
+            color={color.lightGreen}
+            onPress={() => {
+              removeFav(id);
+            }}
+          />
         </View>
       );
     }
@@ -62,7 +76,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
       <View style={globalStyles.buttonContainer}>
         <Button
           title="View on map"
-          color="#5F7161"
+          color={color.darkGreen}
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }

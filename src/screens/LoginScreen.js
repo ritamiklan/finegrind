@@ -5,28 +5,28 @@ import {
   TextInput,
   Button,
   KeyboardAvoidingView,
+  TouchableOpacity,
 } from "react-native";
 import { globalStyles } from "../styles/global";
-import firebaseApp from "../utils/firebase";
+import firebaseApp, { auth } from "../utils/firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useUser } from "../context/UserContext";
+import color from "../styles/color";
 
 // LOGIN SCREEN FOR RETURNING, ALREADY REGISTERED USERS
 
 export default function LoginScreen({ navigation }) {
   const {
     email,
-    password,
-    setUsername,
     setEmail,
-    setPassword,
-    setIsLoggedIn,
-    setUid,
     setFavs,
+    password,
+    setIsLoggedIn,
+    setPassword,
+    setUid,
+    setUsername,
   } = useUser();
-
-  const auth = getAuth(firebaseApp);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -52,13 +52,13 @@ export default function LoginScreen({ navigation }) {
     signInWithEmailAndPassword(auth, email, password).then(
       (userCredentioals) => {
         const user = userCredentioals.user;
-        console.log("LOGGED IN WITH ", user.email);
+        console.log("LOGGED IN WITH ", user.email, user.uid);
       }
     );
   };
 
   return (
-    <KeyboardAvoidingView style={globalStyles.container}>
+    <KeyboardAvoidingView behavior="padding" style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
         <Text style={globalStyles.headerText}>Log in to your account</Text>
         <TextInput
@@ -78,7 +78,15 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button color="#6D8B74" title="LOG IN" onPress={handleLogin} />
+        <Button color={color.lightGreen} title="LOG IN" onPress={handleLogin} />
+      </View>
+      <View style={globalStyles.textContainer}>
+        <Text style={globalStyles.plainText}>Don't have an account?</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("RegisterUserScreen")}
+        >
+          <Text style={globalStyles.touchable}>Register</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );
