@@ -1,4 +1,4 @@
-import { getDatabase, ref, update, remove } from "firebase/database";
+import { getDatabase, ref, update } from "firebase/database";
 import firebaseApp from "./firebase";
 
 export function firebaseSaveFavs(favs, uid) {
