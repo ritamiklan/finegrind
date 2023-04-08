@@ -10,7 +10,7 @@ export default () => {
     fetch(config.API_URL)
       .then((response) => response.json())
       .then((dt) => setCoffeeList(dt.data))
-      .catch((err) => Alert.alert("Something went wrong"));
+      .catch((err) => console.log(err));
   }, []);
 
   return [coffeeList];

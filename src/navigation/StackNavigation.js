@@ -62,7 +62,7 @@ function HomeStack() {
         options={{ title: "Profile" }}
       />
       <Stack.Screen
-        name="FavproteSCreen"
+        name="FavoriteScreen"
         component={FavoriteScreen}
         options={{ title: "Favorites" }}
       />
@@ -89,7 +89,7 @@ function ProfileStackNavigator({ navigation }) {
         options={{ title: "Profile" }}
       />
       <Stack.Screen
-        name="FavproteSCreen"
+        name="FavoriteScreen"
         component={FavoriteScreen}
         options={{ title: "Favorites" }}
       />
@@ -143,7 +143,7 @@ function FavsStackNavigator() {
       }}
     >
       <Stack.Screen
-        name="FavproteSCreen"
+        name="FavoriteScreen"
         component={FavoriteScreen}
         options={{ title: "Favorites" }}
       />

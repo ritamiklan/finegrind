@@ -19,13 +19,13 @@ import color from "../styles/color";
 export default function LoginScreen({ navigation }) {
   const {
     email,
-    password,
-    setUsername,
     setEmail,
-    setPassword,
-    setIsLoggedIn,
-    setUid,
     setFavs,
+    password,
+    setIsLoggedIn,
+    setPassword,
+    setUid,
+    setUsername,
   } = useUser();
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function LoginScreen({ navigation }) {
     signInWithEmailAndPassword(auth, email, password).then(
       (userCredentioals) => {
         const user = userCredentioals.user;
-        console.log("LOGGED IN WITH ", user.email);
+        console.log("LOGGED IN WITH ", user.email, user.uid);
       }
     );
   };
