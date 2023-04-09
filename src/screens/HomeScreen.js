@@ -7,6 +7,7 @@ import MapView, { Marker } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import * as Location from "expo-location";
 import useList from "../hooks/useList";
+import { mapStyle } from "../styles/mapStyle";
 
 export default function HomeScreen({ navigation }) {
   const { username, isLoggedIn, setUserLoc } = useUser();
@@ -72,6 +73,7 @@ export default function HomeScreen({ navigation }) {
       <View style={{ height: 100, flex: 3 }}>
         {location && (
           <MapView
+            customMapStyle={mapStyle}
             style={StyleSheet.absoluteFillObject}
             region={{
               latitude: location.coords.latitude,
