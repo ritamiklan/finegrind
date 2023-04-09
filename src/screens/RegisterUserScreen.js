@@ -75,7 +75,7 @@ export default function RegisterUserScreen({ navigation }) {
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button
-          color={color.lightGreen}
+          color={color.lightBlue}
           title="REGISTER"
           onPress={handleSignup}
         />
