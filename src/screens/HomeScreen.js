@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Image, Button } from "react-native";
+import { Text, View, Image, Button, FlatList } from "react-native";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
 import color from "../styles/color";
 import MapView, { Marker } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import * as Location from "expo-location";
+import useList from "../hooks/useList";
 
 export default function HomeScreen({ navigation }) {
   const { username, isLoggedIn, userLoc, setUserLoc } = useUser();
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [coffeeList] = useList();
 
   useEffect(() => {
     (async () => {
@@ -25,8 +27,6 @@ export default function HomeScreen({ navigation }) {
       setUserLoc(location);
     })();
   }, []);
-
-  console.log(userLoc);
 
   let welcomeText;
   if (isLoggedIn) {
@@ -89,12 +89,26 @@ export default function HomeScreen({ navigation }) {
                 longitudeDelta: 0.0034,
               }}
             />
+            {coffeeList.map((coffeeList, index) => (
+              <Marker
+                key={index}
+                coordinate={{
+                  latitude: coffeeList.attributes.loc.lat,
+                  longitude: coffeeList.attributes.loc.long,
+                }}
+              >
+                <Image
+                  style={globalStyles.markerIcon}
+                  source={require("../../assets/cup4_blue_48.png")}
+                />
+              </Marker>
+            ))}
           </MapView>
         )}
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button
-          color={color.darkGreen}
+          color={color.darkBlue}
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />

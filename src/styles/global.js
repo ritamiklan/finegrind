@@ -22,7 +22,7 @@ export const globalStyles = StyleSheet.create({
     marginTop: 20,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: color.darkGreen,
+    borderColor: color.darkBlue,
     borderRadius: 10,
     backgroundColor: color.lightGrey,
   },
@@ -58,14 +58,14 @@ export const globalStyles = StyleSheet.create({
   mainText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: color.lightGreen,
+    color: color.lightBlue,
     marginBottom: 20,
   },
 
   headerText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: color.lightGreen,
+    color: color.lightBlue,
     margin: 20,
     alignSelf: "center",
   },
@@ -73,13 +73,13 @@ export const globalStyles = StyleSheet.create({
   cardText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: color.darkGreen,
+    color: color.darkBlue,
     margin: 5,
     alignSelf: "center",
   },
 
   plainText: {
-    color: color.darkGreen,
+    color: color.darkBlue,
   },
 
   info: {
@@ -92,7 +92,7 @@ export const globalStyles = StyleSheet.create({
 
   inputField: {
     borderWidth: 1,
-    borderColor: color.darkGreen,
+    borderColor: color.darkBlue,
     borderRadius: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
@@ -104,7 +104,7 @@ export const globalStyles = StyleSheet.create({
   // B U T T O N
 
   touchable: {
-    color: color.lightGreen,
+    color: color.lightBlue,
     fontWeight: "bold",
     fontSize: 16,
   },
@@ -129,5 +129,11 @@ export const globalStyles = StyleSheet.create({
     width: 100,
     height: 100,
     alignSelf: "center",
+  },
+
+  markerIcon: {
+    width: 18,
+    height: 18,
+    tintColor: "#425161",
   },
 });

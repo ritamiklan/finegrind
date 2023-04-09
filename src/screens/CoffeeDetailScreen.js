@@ -36,14 +36,14 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <View style={globalStyles.buttonContainer}>
           <Button
             title="View on map"
-            color={color.darkGreen}
+            color={color.darkBlue}
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
           <Button
             title="Add to favs"
-            color={color.darkGreen}
+            color={color.darkBlue}
             onPress={() => {
               addToFavs(id);
               firebaseSaveFavs(favs, uid);
@@ -56,14 +56,14 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <View style={globalStyles.buttonContainer}>
           <Button
             title="View on map"
-            color={color.darkGreen}
+            color={color.darkBlue}
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
           <Button
             title="Remove from favs"
-            color={color.lightGreen}
+            color={color.lightBlue}
             onPress={() => {
               removeFav(id);
             }}
@@ -76,7 +76,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
       <View style={globalStyles.buttonContainer}>
         <Button
           title="View on map"
-          color={color.darkGreen}
+          color={color.darkBlue}
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }
