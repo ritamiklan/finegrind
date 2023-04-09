@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
 export default function MapComponent({ mapdata }) {
-  const [cafeLoc, setCafeLoc] = useState({
+  const [cafeLoc] = useState({
     latitude: mapdata.attributes.loc.lat,
     longitude: mapdata.attributes.loc.long,
     latitudeDelta: 0.0043,
