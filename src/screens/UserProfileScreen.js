@@ -1,18 +1,14 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useUser } from "../context/UserContext";
-import firebaseApp, { auth } from "../utils/firebase";
-import { getDatabase, ref, onValue } from "firebase/database";
-import useList from "../hooks/useList";
+import { auth } from "../utils/firebase";
 import { globalStyles } from "../styles/global";
-import ListDetail from "../components/ListDetailComponent";
 
 // User profile screen
 // LOG OUT BUTTON LIVES HERE NOW
 
 export default function UserProfile({ navigation }) {
-  const { uid, username, setUsername, setIsLoggedIn, setFavs } = useUser();
-  const [coffeeList] = useList();
+  const { username, setUsername, setIsLoggedIn, setFavs } = useUser();
 
   const handleSignout = () => {
     auth.signOut();

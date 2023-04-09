@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { useUser } from "../context/UserContext";
-import firebaseApp, { auth } from "../utils/firebase";
+import firebaseApp from "../utils/firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
 import useList from "../hooks/useList";
 import { globalStyles } from "../styles/global";
@@ -28,7 +28,6 @@ export default function UserProfile({ navigation }) {
     fav_coffeelist = [];
 
     for (let i = 0; i < coffeeList.length; i++) {
-      // console.log("CoffeeList Item = ", i, coffeeList[i].id);
       if (the_favs.hasOwnProperty(coffeeList[i].id)) {
         fav_coffeelist.push(coffeeList[i]);
       }

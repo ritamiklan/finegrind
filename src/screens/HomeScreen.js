@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Image, Button, FlatList } from "react-native";
+import { Text, View, Image, Button } from "react-native";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
 import color from "../styles/color";
@@ -9,7 +9,7 @@ import * as Location from "expo-location";
 import useList from "../hooks/useList";
 
 export default function HomeScreen({ navigation }) {
-  const { username, isLoggedIn, userLoc, setUserLoc } = useUser();
+  const { username, isLoggedIn, setUserLoc } = useUser();
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [coffeeList] = useList();
