@@ -18,7 +18,7 @@ function HomeStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: color.darkBlue,
+          backgroundColor: color.mediumBlue,
         },
         headerTintColor: color.light,
         headerTitleStyle: {
@@ -75,7 +75,7 @@ function ProfileStackNavigator({ navigation }) {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: color.darkBlue,
+          backgroundColor: color.mediumBlue,
         },
         headerTintColor: color.light,
         headerTitleStyle: {
@@ -102,7 +102,7 @@ function RegisterStackNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: color.darkBlue,
+          backgroundColor: color.mediumBlue,
         },
         headerTintColor: color.light,
         headerTitleStyle: {
@@ -134,7 +134,7 @@ function FavsStackNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: color.darkBlue,
+          backgroundColor: color.mediumBlue,
         },
         headerTintColor: color.light,
         headerTitleStyle: {

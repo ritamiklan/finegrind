@@ -108,7 +108,7 @@ export default function HomeScreen({ navigation }) {
       </View>
       <View style={globalStyles.buttonContainer}>
         <Button
-          color={color.darkBlue}
+          color={color.mediumBlue}
           title="Cafe list"
           onPress={() => navigation.navigate("CoffeeListScreen")}
         />

@@ -22,7 +22,7 @@ export const globalStyles = StyleSheet.create({
     marginTop: 20,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: color.darkBlue,
+    borderColor: color.mediumBlue,
     borderRadius: 10,
     backgroundColor: color.lightGrey,
   },
@@ -73,13 +73,13 @@ export const globalStyles = StyleSheet.create({
   cardText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: color.darkBlue,
+    color: color.mediumBlue,
     margin: 5,
     alignSelf: "center",
   },
 
   plainText: {
-    color: color.darkBlue,
+    color: color.mediumBlue,
   },
 
   info: {
@@ -92,7 +92,7 @@ export const globalStyles = StyleSheet.create({
 
   inputField: {
     borderWidth: 1,
-    borderColor: color.darkBlue,
+    borderColor: color.mediumBlue,
     borderRadius: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
@@ -134,6 +134,6 @@ export const globalStyles = StyleSheet.create({
   markerIcon: {
     width: 18,
     height: 18,
-    tintColor: "#425161",
+    tintColor: color.darkBlue,
   },
 });

@@ -1,6 +1,7 @@
 export default {
-  darkBlue: "#7895B2",
   lightBlue: "#AEBDCA",
+  mediumBlue: "#7895B2",
+  darkBlue: "#425161",
   light: "#F5EFE6",
   medium: "#E8DFCA",
   danger: "#FD8A8A",

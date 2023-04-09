@@ -32,7 +32,7 @@ export default function TabNavigation() {
             }
             return <Ionicons name={iconName} color={color} size={size} />;
           },
-          tabBarActiveTintColor: color.darkBlue,
+          tabBarActiveTintColor: color.mediumBlue,
           tabBarInactiveTintColor: color.lightBlue,
           tabBarShowLabel: false,
           headerShown: false,
@@ -59,7 +59,7 @@ export default function TabNavigation() {
             }
             return <Ionicons name={iconName} color={color} size={size} />;
           },
-          tabBarActiveTintColor: color.darkBlue,
+          tabBarActiveTintColor: color.mediumBlue,
           tabBarInactiveTintColor: color.lightBlue,
           tabBarShowLabel: false,
           headerShown: false,
