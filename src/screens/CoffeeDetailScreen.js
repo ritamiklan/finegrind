@@ -12,7 +12,6 @@ export default function CoffeeDetailScreen({ route, navigation }) {
   const { id } = route.params;
 
   const [coffeeDetail] = useId(id);
-  console.log(coffeeDetail);
 
   const { isLoggedIn, setFavs, favs, uid } = useUser();
 
@@ -36,14 +35,14 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <View style={globalStyles.buttonContainer}>
           <Button
             title="View on map"
-            color={color.darkGreen}
+            color={color.mediumBlue}
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
           <Button
             title="Add to favs"
-            color={color.darkGreen}
+            color={color.mediumBlue}
             onPress={() => {
               addToFavs(id);
               firebaseSaveFavs(favs, uid);
@@ -56,14 +55,14 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <View style={globalStyles.buttonContainer}>
           <Button
             title="View on map"
-            color={color.darkGreen}
+            color={color.mediumBlue}
             onPress={() =>
               navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
             }
           />
           <Button
             title="Remove from favs"
-            color={color.lightGreen}
+            color={color.lightBlue}
             onPress={() => {
               removeFav(id);
             }}
@@ -76,7 +75,7 @@ export default function CoffeeDetailScreen({ route, navigation }) {
       <View style={globalStyles.buttonContainer}>
         <Button
           title="View on map"
-          color={color.darkGreen}
+          color={color.mediumBlue}
           onPress={() =>
             navigation.navigate("ShowMap", { id: id, data: coffeeDetail })
           }
