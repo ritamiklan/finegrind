@@ -7,7 +7,6 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
 } from "react-native";
-import Modal from "react-native-modal";
 import { globalStyles } from "../styles/global";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -98,11 +97,6 @@ export default function RegisterUserScreen({ navigation }) {
         />
         {warning}
       </View>
-      <Modal>
-        <View style={{ flex: 1 }}>
-          <Text>I am the modal content!</Text>
-        </View>
-      </Modal>
       <View style={globalStyles.buttonContainer}>
         <Button
           color={color.mediumBlue}
