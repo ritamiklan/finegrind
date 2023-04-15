@@ -78,7 +78,7 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button color={color.lightBlue} title="LOG IN" onPress={handleLogin} />
+        <Button color={color.mediumBlue} title="LOG IN" onPress={handleLogin} />
       </View>
       <View style={globalStyles.textContainer}>
         <Text style={globalStyles.plainText}>Don't have an account?</Text>

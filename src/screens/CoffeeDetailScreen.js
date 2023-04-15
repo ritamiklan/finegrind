@@ -92,6 +92,8 @@ export default function CoffeeDetailScreen({ route, navigation }) {
         <Text style={globalStyles.plainText}>
           {coffeeDetail.attributes.description}
         </Text>
+      </View>
+      <View style={globalStyles.details}>
         <Text style={globalStyles.plainText}>Hours:</Text>
         <Text style={globalStyles.plainText}>
           Mon: {coffeeDetail.attributes.openinghours.mon}
