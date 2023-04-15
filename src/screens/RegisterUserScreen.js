@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
 } from "react-native";
+import Modal from "react-native-modal";
 import { globalStyles } from "../styles/global";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -28,6 +29,8 @@ export default function RegisterUserScreen({ navigation }) {
     setUid,
   } = useUser();
 
+  const [err, setErr] = useState(null);
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -38,19 +41,40 @@ export default function RegisterUserScreen({ navigation }) {
   }, []);
 
   const handleSignup = () => {
-    createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredentials) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
         const user = userCredentials.user;
         firebaseRegisterUser(user, username);
         setUid(user.uid);
-      }
-    );
+      })
+      .catch((err) => setErr(err));
   };
+
+  let errorMessage;
+  if (err !== null) {
+    errorMessage = (
+      <Text>Please make sure you fill all the fields correctly.</Text>
+    );
+  }
+
+  console.log(err);
+
+  let warning;
+  if (password.length < 6) {
+    warning = (
+      <View>
+        <Text>The password must be at least 6 characters.</Text>
+      </View>
+    );
+  } else {
+    warning = null;
+  }
 
   return (
     <KeyboardAvoidingView behavior="padding" style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
         <Text style={globalStyles.headerText}>Please register</Text>
+        {errorMessage}
         <TextInput
           style={globalStyles.inputField}
           placeholder="Username"
@@ -72,7 +96,13 @@ export default function RegisterUserScreen({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           autoCapitalize="none"
         />
+        {warning}
       </View>
+      <Modal>
+        <View style={{ flex: 1 }}>
+          <Text>I am the modal content!</Text>
+        </View>
+      </Modal>
       <View style={globalStyles.buttonContainer}>
         <Button
           color={color.mediumBlue}
