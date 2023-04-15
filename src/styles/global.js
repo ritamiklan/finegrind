@@ -83,6 +83,13 @@ export const globalStyles = StyleSheet.create({
     marginHorizontal: 10,
   },
 
+  plainCenterText: {
+    fontSize: 15,
+    color: color.mediumBlue,
+    marginHorizontal: 10,
+    alignSelf: "center",
+  },
+
   info: {
     fontSize: 12,
     color: color.medium,
@@ -136,5 +143,20 @@ export const globalStyles = StyleSheet.create({
     width: 18,
     height: 18,
     tintColor: color.darkBlue,
+  },
+
+  // T O O L T I P
+
+  tooltip: {
+    width: 100,
+    height: 60,
+    padding: 5,
+    backgroundColor: color.white,
+    color: color.mediumBlue,
+    borderColor: color.mediumBlue,
+    borderWidth: 1,
+    borderRadius: 10,
+    textAlign: "center",
+    alignSelf: "center",
   },
 });
