@@ -3,7 +3,7 @@ import { Text, View, Image, Button } from "react-native";
 import { globalStyles } from "../styles/global";
 import { useUser } from "../context/UserContext";
 import color from "../styles/color";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Callout } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import * as Location from "expo-location";
 import useList from "../hooks/useList";
@@ -87,8 +87,8 @@ export default function HomeScreen({ navigation }) {
               coordinate={{
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
-                latitudeDelta: 0.0043,
-                longitudeDelta: 0.0034,
+                latitudeDelta: 0.006,
+                longitudeDelta: 0.0054,
               }}
             />
             {coffeeList.map((coffeeList, index) => (
@@ -103,6 +103,11 @@ export default function HomeScreen({ navigation }) {
                   style={globalStyles.markerIcon}
                   source={require("../../assets/cup4_blue_48.png")}
                 />
+                <Callout tooltip={true}>
+                  <Text key={index} style={globalStyles.tooltip}>
+                    {coffeeList.attributes.name}
+                  </Text>
+                </Callout>
               </Marker>
             ))}
           </MapView>
