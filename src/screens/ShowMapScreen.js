@@ -10,6 +10,12 @@ export default function ShowMap({ route }) {
     <View style={globalStyles.container}>
       <View style={{ flex: 1 }}>
         <Text style={globalStyles.headerText}>{data.attributes.name}</Text>
+        <Text style={globalStyles.plainCenterText}>
+          Address: {data.attributes.address}
+        </Text>
+        <Text style={globalStyles.plainCenterText}>
+          {data.attributes.zip_code} {data.attributes.city}
+        </Text>
       </View>
 
       <View style={{ height: 100, flex: 3 }}>

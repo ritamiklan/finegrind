@@ -26,42 +26,8 @@ export const mapStyle = [
     ],
   },
   {
-    featureType: "road",
-    elementType: "labels.icon",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "road.arterial",
-    elementType: "labels",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "road.highway",
-    stylers: [
-      {
-        visibility: "simplified",
-      },
-    ],
-  },
-  {
-    featureType: "road.highway",
-    elementType: "labels",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "road.local",
+    featureType: "poi.park",
+    elementType: "labels.text",
     stylers: [
       {
         visibility: "off",
@@ -71,14 +37,6 @@ export const mapStyle = [
   {
     featureType: "road.local",
     elementType: "labels",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "transit",
     stylers: [
       {
         visibility: "off",

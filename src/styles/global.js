@@ -50,28 +50,27 @@ export const globalStyles = StyleSheet.create({
     // CoffeeDetailsScreen
     flex: 2,
     marginHorizontal: 10,
-    justifyContent: "space-around",
   },
 
   //  T E X T S
 
   mainText: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
-    color: color.lightBlue,
+    color: color.mediumBlue,
     marginBottom: 20,
   },
 
   headerText: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: "bold",
-    color: color.lightBlue,
+    color: color.mediumBlue,
     margin: 20,
     alignSelf: "center",
   },
 
   cardText: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     color: color.mediumBlue,
     margin: 5,
@@ -79,13 +78,26 @@ export const globalStyles = StyleSheet.create({
   },
 
   plainText: {
+    fontSize: 15,
     color: color.mediumBlue,
+    marginHorizontal: 10,
+  },
+
+  plainCenterText: {
+    fontSize: 15,
+    color: color.mediumBlue,
+    marginHorizontal: 10,
+    alignSelf: "center",
   },
 
   info: {
     fontSize: 12,
     color: color.medium,
     alignSelf: "center",
+  },
+
+  errorText: {
+    color: color.danger,
   },
 
   // I N P U T
@@ -104,9 +116,9 @@ export const globalStyles = StyleSheet.create({
   // B U T T O N
 
   touchable: {
-    color: color.lightBlue,
+    color: color.mediumBlue,
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 18,
   },
 
   // I M A G E S
@@ -126,8 +138,8 @@ export const globalStyles = StyleSheet.create({
   },
 
   logo: {
-    width: 100,
-    height: 100,
+    width: 60,
+    height: 60,
     alignSelf: "center",
   },
 
@@ -135,5 +147,20 @@ export const globalStyles = StyleSheet.create({
     width: 18,
     height: 18,
     tintColor: color.darkBlue,
+  },
+
+  // T O O L T I P
+
+  tooltip: {
+    width: 100,
+    height: 60,
+    padding: 5,
+    backgroundColor: color.white,
+    color: color.mediumBlue,
+    borderColor: color.mediumBlue,
+    borderWidth: 1,
+    borderRadius: 10,
+    textAlign: "center",
+    alignSelf: "center",
   },
 });

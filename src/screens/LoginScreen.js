@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -48,19 +48,31 @@ export default function LoginScreen({ navigation }) {
     });
   }, []);
 
+  const [err, setErr] = useState(null);
+
   const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password).then(
-      (userCredentioals) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredentioals) => {
         const user = userCredentioals.user;
         console.log("LOGGED IN WITH ", user.email, user.uid);
-      }
-    );
+      })
+      .catch((err) => setErr(err));
   };
+
+  let errorMessage;
+  if (err !== null) {
+    errorMessage = (
+      <Text style={globalStyles.errorText}>
+        Username or password incorrect.
+      </Text>
+    );
+  }
 
   return (
     <KeyboardAvoidingView behavior="padding" style={globalStyles.container}>
       <View style={globalStyles.inputContainer}>
         <Text style={globalStyles.headerText}>Log in to your account</Text>
+        {errorMessage}
         <TextInput
           style={globalStyles.inputField}
           placeholder="E-mail"
@@ -78,7 +90,7 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
       <View style={globalStyles.buttonContainer}>
-        <Button color={color.lightBlue} title="LOG IN" onPress={handleLogin} />
+        <Button color={color.mediumBlue} title="LOG IN" onPress={handleLogin} />
       </View>
       <View style={globalStyles.textContainer}>
         <Text style={globalStyles.plainText}>Don't have an account?</Text>
