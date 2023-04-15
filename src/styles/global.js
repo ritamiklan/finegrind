@@ -96,6 +96,10 @@ export const globalStyles = StyleSheet.create({
     alignSelf: "center",
   },
 
+  errorText: {
+    color: color.danger,
+  },
+
   // I N P U T
 
   inputField: {

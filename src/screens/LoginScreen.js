@@ -61,7 +61,11 @@ export default function LoginScreen({ navigation }) {
 
   let errorMessage;
   if (err !== null) {
-    errorMessage = <Text>Username or password incorrect.</Text>;
+    errorMessage = (
+      <Text style={globalStyles.errorText}>
+        Username or password incorrect.
+      </Text>
+    );
   }
 
   return (

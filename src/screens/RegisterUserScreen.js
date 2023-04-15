@@ -53,11 +53,11 @@ export default function RegisterUserScreen({ navigation }) {
   let errorMessage;
   if (err !== null) {
     errorMessage = (
-      <Text>Please make sure you fill all the fields correctly.</Text>
+      <Text style={globalStyles.errorText}>
+        Please make sure you fill all the fields correctly.
+      </Text>
     );
   }
-
-  console.log(err);
 
   let warning;
   if (password.length < 6) {
