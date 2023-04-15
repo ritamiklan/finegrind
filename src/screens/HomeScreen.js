@@ -103,7 +103,14 @@ export default function HomeScreen({ navigation }) {
                   style={globalStyles.markerIcon}
                   source={require("../../assets/cup4_blue_48.png")}
                 />
-                <Callout tooltip={true}>
+                <Callout
+                  onPress={() =>
+                    navigation.navigate("CoffeeDetailScreen", {
+                      id: coffeeList.id,
+                    })
+                  }
+                  tooltip={true}
+                >
                   <Text key={index} style={globalStyles.tooltip}>
                     {coffeeList.attributes.name}
                   </Text>
