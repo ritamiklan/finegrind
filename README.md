@@ -1,8 +1,10 @@
 # FineGrind Mobile App
 
-React Native app for listing and finding small 3rd wave coffee shops who serve specialty coffee and feature a selection from local roasteries.
+## This app was created for my bachelor thesis and it is not maintained any longer.
 
-Originally I started to develop this app for my Mobile development class at Haaga-Helia, but it is also a personal project near and dear my heart.
+React Native app for listing and finding small 3rd wave coffee shops serving specialty coffee and featuring a selection from local roasteries.
+
+Originally I started to develop this app for my Mobile development class at Haaga-Helia, but it is also a personal project near and dear to my heart.
 Currently focusing on Helsinki, Finland, but with a possibility to expand to more cities and countries later on.
 
 ## Idea
